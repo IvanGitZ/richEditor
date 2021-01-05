@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b0d4402c-482c-4660-b878-00f8e98f5206" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcl/img/buttonDown.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/bold.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/center.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/hcview.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/hcview.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/italic.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/justify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/left.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/leftindent.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/linespace.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/new.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/open.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/print.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/redo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/rightindent.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/save.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/scatter.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/strikeout.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/subscript.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/superscript.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/underline.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/undo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/richEditor.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HCViewDemo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.en.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcl/Application.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcl/Clipboard.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcl/Controls.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcl/ExtCtrls.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcl/Forms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcl/Graphics.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcl/Ime.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcl/Kernel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcl/Messages.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcl/Region.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcl/StdCtrls.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcl/System.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCAnnotateData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCBarCodeItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCCheckBoxItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCCode128.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCComboboxItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCCommon.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCCustomData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCCustomFloatItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCDateTimePicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCDrawItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCEditItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCExpressItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCFloatBarCodeItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCFloatLineItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCFormatData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCFractionItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCGifItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCImageItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCLineItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCPage.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCParaStyle.JS" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCQRCodeItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCRadioGroup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCRectItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCRectRegion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCRichData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCRichScrollBar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCSection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCSectionData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCShape.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCStatusScrollBar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCStyle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCStyleMatch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCSupSubScriptItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCTabItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCTableCell.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCTableCellData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCTableItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCTableRow.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCTextItem.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCTextStyle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCUndo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCUndoData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCUnitConversion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCViewData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/HCViewDevData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hcview/frmInsertTable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="85" />
+    <option name="y" value="1" />
+    <option name="width" value="1022" />
+    <option name="height" value="726" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="richEditor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="richEditor" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/richEditor/index.html" />
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b0d4402c-482c-4660-b878-00f8e98f5206" name="Default" comment="" />
+      <created>1609837115836</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609837115836</updated>
+      <workItem from="1609837117244" duration="90000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="90000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="85" y="1" width="1022" height="726" extended-state="0" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2550813" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32881355" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
