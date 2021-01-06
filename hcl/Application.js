@@ -22,7 +22,7 @@ class TApplication extends TObject {
         this.title = "HCL Application";
         // 创建时调用父类TObject的createMainForm函数
         this.mainForm = this.createMainForm();
-        console.log('TApplication', this)
+        console.log('1-TApplication', this)
         // 初始化非客户区按钮
         this.mainForm.captionBar.controls.clear();
     }
@@ -94,6 +94,7 @@ class TApplication extends TObject {
     }
 
     addControl(control) {
+        console.log('1-control', control)
         this.addForm(control);
     }
 
@@ -106,6 +107,7 @@ class TApplication extends TObject {
         // 调用forms的add方法，传入form
         this.forms.add(form);
         // 调用传入的mainForm的added方法
+        // controls中class TControl extends TComponent中有added方法
         form.added_(this);
     }
 
@@ -160,7 +162,7 @@ class TApplication extends TObject {
         if (this.mainForm == null) {
             // new一个新的TForm，给予宽高
             this.mainForm = new TForm(hcl.width, hcl.height);
-            console.log('打印mainForm', this.mainForm)
+            console.log('1-打印mainForm', this.mainForm)
             // 非客户区的参数captureParent（？用途）初始化设置为false
             this.mainForm.captionBar.captureParent = false;
             // 将new好的视图对象传入到addForm函数中
