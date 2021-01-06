@@ -14,15 +14,21 @@ export var TImageSrcType = {
     URL: 1,
     Base64: 2
 }
-
+/*
+* 继承TControl定义Timage类
+* */
 export class TImage extends TControl {
     constructor() {
+        // 调用父类
         super();
+        // 初始化参数
         this.autoSize = true;
         this._srcType = TImageSrcType.None;
         this._imageType = "";
         this._onImageLoaded = null;
+        // 创建图片对象
         this.image = new Image();
+        // 图片加载完成后执行
         this.image.onload = (e) => {  // eslint-disable-line
             this.doImageLoad_();
         }
@@ -210,7 +216,7 @@ export class TTextControl extends TControl {
             if (this._autoHeight)
                 this.doSetAutoHeight_();
         }
-    }    
+    }
 
     doSetAutoWidth_() {
         let vW = this.paddingLeft + this.paddingRight + THCCanvas.textWidth(this.font, this.text);
@@ -291,8 +297,8 @@ export class TTextControl extends TControl {
     }
 
     textArea() {
-        return TRect.Create(this.paddingLeft + (this.borderVisible_ ? this.borderWidth_ : 0), 
-            this.paddingTop + (this.borderVisible_ ? this.borderWidth_ : 0), 
+        return TRect.Create(this.paddingLeft + (this.borderVisible_ ? this.borderWidth_ : 0),
+            this.paddingTop + (this.borderVisible_ ? this.borderWidth_ : 0),
             this.width - (this.borderVisible_ ? this.borderWidth_ : 0) - this.paddingRight,
             this.height - (this.borderVisible_ ? this.borderWidth_ : 0) - this.paddingBottom);
     }
@@ -406,7 +412,7 @@ export class TButton extends TTextControl {
         this._paddingTop = 5;
         this._paddingRight = 5;
         this._paddingBottom = 5;
-        this.textVisible_ = true;  
+        this.textVisible_ = true;
         this.canFocus = true;
         this.width = 75;
     }
@@ -453,7 +459,7 @@ export class TButton extends TTextControl {
     }
 
     doPaintBackground_(hclCanvas) {
-        if (this.mouseStates.has(TMouseStates.MouseIn)) 
+        if (this.mouseStates.has(TMouseStates.MouseIn))
             this.doPaintHotBackground_(hclCanvas);
         else
             this.doPaintStaticBackground_(hclCanvas);
@@ -569,7 +575,7 @@ export class TToolButton extends TImageButton {
             this._checked = val;
             this.update();
         }
-    }    
+    }
 }
 
 export class TToolMenuButton extends TMenuButton {
@@ -668,7 +674,7 @@ export class TCaptionBar extends TToolBar {
             vRect.offset(-1, -1);
             vControl.left += e.x - this._x;
             vControl.top += e.y - this._y;
-            application.updateRect(vRect); 
+            application.updateRect(vRect);
 
             // while (control != null) {
             //     if (control instanceof TForm) {
@@ -774,7 +780,7 @@ export class TCheckBox extends TLable {
 
 export class TInputControl extends TTextControl {
     constructor(text) {
-        super(text);        
+        super(text);
         this._readOnly = false;
         this.cursor_ = TCursors.Ibeam;
         this.imeMode = TImeMode.Disabled;
@@ -967,7 +973,7 @@ export class TEdit extends TInputControl {
 
     _destroyCaret() {
         application.destroyCaret(this);
-    }    
+    }
 
     getCharOffsetAt_(x, y) {  // eslint-disable-line
         let vX = x - (this.borderVisible_ ? this.borderWidth_ : 0) - this.paddingLeft + this._leftOffset;
@@ -988,7 +994,7 @@ export class TEdit extends TInputControl {
             if (vX > vLeft)
                 return this.text.length;
         }
-            
+        
         return 0;
     }
 
@@ -1139,7 +1145,7 @@ export class TEdit extends TInputControl {
         try {
             if (this.selectExists())
                 this.deleteSelect();
-            else 
+            else
             if (this._selStart < this.text.length) {
                 this.deleteText(this._selStart, 1);
                 this.showCaret_();
@@ -1334,11 +1340,11 @@ export class TEdit extends TInputControl {
                 break;
 
             case TKey.X:
-                if (e.shift.compare(new Set([TShiftState.Ctrl]))) 
+                if (e.shift.compare(new Set([TShiftState.Ctrl])))
                     this.cut();
             
                 break;
-        }     
+        }
     }
 
     doKeyPress_(e) {
@@ -1347,7 +1353,7 @@ export class TEdit extends TInputControl {
 
     doSetFocus_(accept) {
         super.doSetFocus_(accept);
-        this._createCaret();        
+        this._createCaret();
     }
 
     doKillFocus_() {
@@ -1371,7 +1377,7 @@ export class TEdit extends TInputControl {
         hclCanvas.fillRect(vRect);
 
         // selected background
-        if (this.selectExists()) 
+        if (this.selectExists())
             this.doPaintSelected_(hclCanvas);
 
         // border
@@ -1425,7 +1431,7 @@ export class TEdit extends TInputControl {
     }
 
     dispose() {
-        this._destroyCaret();        
+        this._destroyCaret();
     }
 
     insertText(index, text) {
@@ -1489,7 +1495,7 @@ export class TEdit extends TInputControl {
         if (this.selectExists()) {
             this._selEnd = -1;
             this.resetSelect_();
-        } 
+        }
     }
 
     select(start, length = 0) {
@@ -1544,7 +1550,7 @@ export class TEdit extends TInputControl {
     }
 
     get selLength() {
-        if (this._selEnd < 0) 
+        if (this._selEnd < 0)
             return 0;
 
         return Math.abs(this._selEnd - this._selStart);
@@ -1599,7 +1605,7 @@ export class TButtonEdit extends TEdit {
     }
 
     calcButtonRect_() {
-        this._buttonRect = TRect.Create(this.width - this._paddingRight + 1,  // 让出右侧未显示内容提示线 
+        this._buttonRect = TRect.Create(this.width - this._paddingRight + 1,  // 让出右侧未显示内容提示线
             this.borderWidth_, this.width - this.borderWidth_, this.height - this.borderWidth_);
     }
 
@@ -1608,7 +1614,7 @@ export class TButtonEdit extends TEdit {
         if (this._buttonMouseIn) {
             if (this._buttonDown)
                 hclCanvas.brush.color = theme.backgroundDownColor;
-            else 
+            else
                 hclCanvas.brush.color = theme.backgroundHotColor;
 
             hclCanvas.fillRect(this._buttonRect);
@@ -1666,7 +1672,7 @@ export class TButtonEdit extends TEdit {
             this._buttonDown = false;
             this._updateButtonRect();
             if (this._buttonRect.pointInAt(e.x, e.y))
-                this.doButtonClick_();            
+                this.doButtonClick_();
         } else
             super.doMouseUp_(e);
     }
@@ -1781,8 +1787,8 @@ export class TListBox extends TTextControl {
     }
 
     _getItemRect(index) {
-        return TRect.CreateByBounds(this.paddingLeft, 
-            index * (this.font.height + theme.marginSpaceDouble) - this._getTopOffset() + this.paddingTop + (this.borderVisible_ ? this.borderWidth_ : 0), 
+        return TRect.CreateByBounds(this.paddingLeft,
+            index * (this.font.height + theme.marginSpaceDouble) - this._getTopOffset() + this.paddingTop + (this.borderVisible_ ? this.borderWidth_ : 0),
             this.width - this._paddingLeft - this.paddingRight, this.font.height + theme.marginSpaceDouble);
     }
 
@@ -1806,7 +1812,7 @@ export class TListBox extends TTextControl {
 
     _setHotIndex(val) {
         if (val != this._hotIndex) {
-            let vIndex = this._hotIndex;            
+            let vIndex = this._hotIndex;
             this._hotIndex = val;
             if (vIndex >= 0)
                 this.updateRect(this._getItemRect(vIndex));
@@ -1823,7 +1829,7 @@ export class TListBox extends TTextControl {
 
     _setItemIndex(val) {
         if (val != this._itemIndex) {
-            let vIndex = this._itemIndex;            
+            let vIndex = this._itemIndex;
             this._itemIndex = val;
             if (vIndex >= 0)
                 this.updateRect(this._getItemRect(vIndex));
@@ -1859,7 +1865,7 @@ export class TListBox extends TTextControl {
                 this._scrollBar.height = this.height;
                 this._scrollBar.left = this.width - this._scrollBar.width - this._paddingRight;
                 this._scrollBar.top = 0;
-            }                
+            }
 
             this._scrollBar.max = vH;
             this._scrollBar.visible = true;
@@ -1984,7 +1990,7 @@ export class TListBox extends TTextControl {
             this.itemIndex = this._getItemIndexAt(e.x, e.y);
 
         super.doMouseUp_(e);
-    }    
+    }
 
     _doPaintBorder(hclCanvas, rect) {
         hclCanvas.pen.width = this.borderWidth_;
@@ -2024,7 +2030,7 @@ export class TListBox extends TTextControl {
                 vHotRect = vTextRect.intersection(vHotRect);
                 hclCanvas.brush.color = theme.backgroundHotColor;
                 hclCanvas.fillRect(vHotRect);
-            }            
+            }
         }
 
         // border
@@ -2072,7 +2078,7 @@ export class TListBox extends TTextControl {
     }
 
     dispose() {
-        this._items.clear();        
+        this._items.clear();
     }
 
     textArea() {
@@ -2328,6 +2334,7 @@ class TCustomMenuItem extends TObject {
     constructor(text) {
         super();
         this.text = text;
+        // 定义subItems对象
         this.subItems = new TList();
         this.enabled = true;
         this.visible = true;
@@ -2358,12 +2365,17 @@ class TCustomMenuItem extends TObject {
 
     get isSpliter() {
         return this.text == "-";
-    }    
+    }
 }
-
+/*
+* 继承TCustomMenuItem创建TMenuItem类
+* */
 class TMenuItem extends TCustomMenuItem {
     constructor(text) {
+        // super调用父类并传入参数text
+        console.log('2-调用父类TCustomMenuItem', text)
         super(text);
+        // 初始化参数
         this._popupControl = null;
         this.dropDownStyle = false;
         this.image = TImage.Create(16, 16);
@@ -2395,8 +2407,13 @@ class TMenuItem extends TCustomMenuItem {
     }
 
     addItem(text) {
+        // 为右键菜单添加类型
+        // console.log('2-addItem', text)
         let vItem = new TMenuItem(text);
+        // 定义需要添加的右键类型的对象
+        console.log('2-TMenuItem', vItem)
         this.subItems.add(vItem);
+        // 调用add方法添加到右键菜单
         return vItem;
     }
 
@@ -2444,6 +2461,7 @@ class TMenuItem extends TCustomMenuItem {
 
 export class TPopupMenu extends TMenuItem {
     constructor() {
+        // super 关键字用于访问父对象上的函数
         super("");
     }
 }
@@ -2459,7 +2477,7 @@ class TPopupMenuControl extends TPopupControl {
     }
 
     _calcPopupControl() {
-        let vHeight = 0, vTop = 0, vMaxWidth = 100; 
+        let vHeight = 0, vTop = 0, vMaxWidth = 100;
         let vItem = null;
 
         // TAlign.alTop

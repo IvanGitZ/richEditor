@@ -985,6 +985,7 @@ export class TList extends Array {
     doClear_() { }
 
     add(item) {
+        // 右键分类的添加
         this[this.length] = item;
         this.doAdded_(item);
     }
