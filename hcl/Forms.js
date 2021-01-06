@@ -32,7 +32,7 @@ export class TCustomForm extends TCustomControl {
 
     doPaintBorder_(hclCanvas) {
         hclCanvas.brush.color = "#909090";
-        if (this.paddingLeft > 0) 
+        if (this.paddingLeft > 0)
             hclCanvas.fillBounds(0, 0, this.paddingLeft, this.height);
 
         if (this.paddingTop)
@@ -71,7 +71,7 @@ export class TCustomForm extends TCustomControl {
                 this.dispose();
             }
         }
-    }    
+    }
 
     hide() {
         this.visible = false;
@@ -112,6 +112,7 @@ export class TCustomForm extends TCustomControl {
     onClose() { }
 }
 
+// 创建了容器（设置宽高，客户区非客户区）
 export class TForm extends TCustomForm {
     constructor(width, height) {
         super(width, height);
