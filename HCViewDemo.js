@@ -6,7 +6,7 @@ import { THCFontStyle } from "./hcview/HCTextStyle.js";
 import { THCView } from "./hcview/HCView.js";
 
 // 设置左上角图标
-application.icon.src = "./image/hcview.png";
+// application.icon.src = "./image/hcview.png";
 // 创建基础容器，客户区非客户区
 let mainForm = application.mainForm;
 
