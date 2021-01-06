@@ -1,3 +1,5 @@
+// 系统公共方法类
+
 export var TCharSet = {
     Ansi: 0,
     Unicode: 1,
@@ -69,7 +71,7 @@ class TSystem {
 
     /**
      * 是否是数字（正负整数、浮点数、0）
-     * @param {*} val 
+     * @param {*} val
      */
     isNumber(val){
         let regPos = /^\d+(\.\d+)?$/;  // 非负浮点数
@@ -77,7 +79,7 @@ class TSystem {
         if (regPos.test(val) || regNeg.test(val))
             return true;
         else
-            return false;   
+            return false;
     }
 
     assigned(obj) {
@@ -177,7 +179,7 @@ export class TUtf8Encoding extends TEncoding {
         let vUInt8Arr = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
         let vUInt16Arr = new Uint16Array(vUInt8Arr.buffer);
         return String.fromCharCode.apply(null, vUInt16Arr);
-    }    
+    }
 }
 
 export class TUtf16Encoding extends TEncoding {
@@ -220,7 +222,7 @@ export class TUtf16Encoding extends TEncoding {
         let vUInt8Arr = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
         let vUInt16Arr = new Uint16Array(vUInt8Arr.buffer);
         return String.fromCharCode.apply(null, vUInt16Arr);
-    }    
+    }
 
     static toUtf8(str) {
         let vUtf8Arr = new TBytes(0), vCharCode;
@@ -666,7 +668,7 @@ export class TUInt64 {
         vBuffer[6] = vUInt8[0];
         vUInt8[0] = this.hi32 >> 24;
         vBuffer[7] = vUInt8[0];
-        return vBuffer; 
+        return vBuffer;
     }
 }
 
@@ -696,34 +698,31 @@ export class TEnumSet {
 }
 
 /**
- * HCL类：HCL基类
+ * HCL类：HCL基类（es6中class的用法）
  */
 export class TObject {
+    // es6定义构造方法
     constructor() {
         this._className = this.constructor.name;
     }
-
-    dispose() { }
-
+    dispose() {
+    }
     isClass(cls) {
         return this instanceof cls;
     }
-
     isSubClass(cls) {
         if (cls === TObject)
             return true;
-
         let vObj = Object.getPrototypeOf(this);  // let vObj = this.constructor;
         return vObj.isClass(cls);
     }
-
     newInstance() {
         //return Object.create(this);
         //return new Object(this);
         return new this.constructor;
     }
-
     get className() {
+        console.log('TObject的className', this._className)
         return this._className;
     }
 }
@@ -979,13 +978,14 @@ export class TList extends Array {
         if (this.ownsObjects) {
             let vObj = Object.getPrototypeOf(item);
             if (vObj instanceof TObject)
-                item.dispose();    
-        }        
+                item.dispose();
+        }
     }
 
     doClear_() { }
 
     add(item) {
+        // 右键分类的添加
         this[this.length] = item;
         this.doAdded_(item);
     }
@@ -1148,27 +1148,27 @@ export class TDateTime {
         this._datetime = new Date;
     }
 
-    format(fmt) {   
-        let o = {   
+    format(fmt) {
+        let o = {
             "M+" : this.month,
             "d+" : this.day,
             "h+" : this.hour,
             "m+" : this.minute,
             "s+" : this.second,
-            //"q+" : Math.floor((this.month + 3) / 3), //季度   
+            //"q+" : Math.floor((this.month + 3) / 3), //季度
             "S"  : this.millisecond,
             "z"  : this.millisecond
-        };   
+        };
   
-        if (/(y+)/.test(fmt))   
-            fmt = fmt.replace(RegExp.$1, (this.year + "").substr(4 - RegExp.$1.length));   
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.year + "").substr(4 - RegExp.$1.length));
 
-        for (let k in o) {  
-            if(new RegExp("("+ k +")").test(fmt))   
-                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
+        for (let k in o) {
+            if(new RegExp("("+ k +")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
         }
 
-        return fmt;   
+        return fmt;
     }
 
     toString() {
@@ -1348,7 +1348,7 @@ export class TStream {
                 //console.log('onerror');
             }
 
-            vReader.readAsArrayBuffer(blob);    
+            vReader.readAsArrayBuffer(blob);
         // }).then(() => {  // 成功
         //     console.log('成功');
         //     callBack();
@@ -1465,17 +1465,17 @@ export class TStream {
         let vDV = new DataView(new Uint8Array(vBuffer).buffer);
         return vDV.getUint32(0, true) + (vDV.getUint32(4, true) << 32);  // littleEndian
         //return (vDV.getUint32(0, false) << 32) + vDV.getUint32(4, false);
-        //return (vBuffer[7] << 56) + (vBuffer[6] << 48) + (vBuffer[5] << 40) + (vBuffer[4] << 32) 
+        //return (vBuffer[7] << 56) + (vBuffer[6] << 48) + (vBuffer[5] << 40) + (vBuffer[4] << 32)
         //    + (vBuffer[3] << 24) + (vBuffer[2] << 16) + (vBuffer[1] << 8) + vBuffer[0];
     }
 
     writeInt64(int64) {
-        
+    
     }
 
     readUInt64() {
         let vBuffer = this.readBuffer(8);
-        return (vBuffer[7] << 56) + (vBuffer[6] << 48) + (vBuffer[5] << 40) + (vBuffer[4] << 32) 
+        return (vBuffer[7] << 56) + (vBuffer[6] << 48) + (vBuffer[5] << 40) + (vBuffer[4] << 32)
             + (vBuffer[3] << 24) + (vBuffer[2] << 16) + (vBuffer[1] << 8) + vBuffer[0];
     }
 

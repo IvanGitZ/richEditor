@@ -3,10 +3,14 @@ import { TCustomForm, TForm, TFormShowState } from "./Forms.js";
 import { hcl } from "./Kernel.js";
 import { system, TList, TObject, TPoint, TRect } from "./System.js";
 
+/*
+* es6中使用extends实现继承
+* 继承hcl基类定义application类
+* */
 class TApplication extends TObject {
     constructor() {
+        // 定义该类的构造方法
         super();
-
         this._updateCount = 0;
         this._runing = false;
         this.icon = new Image(16, 16);
@@ -16,7 +20,10 @@ class TApplication extends TObject {
         this._mouseMoveForm = null;
 
         this.title = "HCL Application";
+        // 创建时调用父类TObject的createMainForm函数
         this.mainForm = this.createMainForm();
+        console.log('1-TApplication', this)
+        // 初始化非客户区按钮
         this.mainForm.captionBar.controls.clear();
     }
 
@@ -65,7 +72,7 @@ class TApplication extends TObject {
 
     killFocusControl_(control) {
         hcl._killFocusControl_(this, control);
-    }     
+    }
 
     controlVisible_(control, val) {
         if (val)
@@ -87,16 +94,20 @@ class TApplication extends TObject {
     }
 
     addControl(control) {
+        console.log('1-control', control)
         this.addForm(control);
     }
 
     addForm(form) {
         if (!form.isClass(TCustomForm)) {
+            // 判断传入的form是不是TCustomForm的子类
             system.exception("application只能添加TCustomForm的子类！");
             return;
         }
-
+        // 调用forms的add方法，传入form
         this.forms.add(form);
+        // 调用传入的mainForm的added方法
+        // controls中class TControl extends TComponent中有added方法
         form.added_(this);
     }
 
@@ -149,8 +160,12 @@ class TApplication extends TObject {
 
     createMainForm() {
         if (this.mainForm == null) {
+            // new一个新的TForm，给予宽高
             this.mainForm = new TForm(hcl.width, hcl.height);
+            console.log('1-打印mainForm', this.mainForm)
+            // 非客户区的参数captureParent（？用途）初始化设置为false
             this.mainForm.captionBar.captureParent = false;
+            // 将new好的视图对象传入到addForm函数中
             this.addForm(this.mainForm);
         }
 
@@ -167,7 +182,7 @@ class TApplication extends TObject {
         vMouseArgs.assign(e);
         vMouseArgs.x -= this._mouseMoveForm.left;
         vMouseArgs.y -= this._mouseMoveForm.top;
-        this._mouseMoveForm.mouseWheel(vMouseArgs);        
+        this._mouseMoveForm.mouseWheel(vMouseArgs);
     }
 
     mouseDown(e) {

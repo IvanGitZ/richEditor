@@ -16,7 +16,7 @@ export var TAlign = {
 }
 
 export var TOrientation = {
-    Horizontal: 0, 
+    Horizontal: 0,
     Vertical: 1
 }
 
@@ -70,7 +70,7 @@ export var THorizontalAlign = {
 
 export var TVerticalAlign = {
     Top: 0,
-    Bottom: 1, 
+    Bottom: 1,
     Center: 2
 }
 
@@ -376,7 +376,7 @@ class TTheme {
 
     getCSSCursor(cursor) {
         switch (cursor) {
-            case TCursors.Cross: 
+            case TCursors.Cross:
                 return "crosshair";
             
             case TCursors.Drag:
@@ -418,7 +418,7 @@ class TTheme {
             default:
                 return "default";
         }
-    }    
+    }
 
     drawDropDown(hclCanvas, rect) {
         hclCanvas.beginPath();
@@ -496,7 +496,7 @@ export class TControl extends TComponent {
         this._paddingLeft = 0;
         this._paddingTop = 0;
         this._paddingRight = 0;
-        this._paddingBottom = 0;        
+        this._paddingBottom = 0;
 
         this.align_ = TAlign.None;
         this._parent = null;
@@ -519,7 +519,7 @@ export class TControl extends TComponent {
         this.tag = null;
     }
 
-    _setBounds() { 
+    _setBounds() {
         this.doSetBounds_();
         this.doResize_();
     }
@@ -533,13 +533,13 @@ export class TControl extends TComponent {
         this.onResize();
     }
 
-    doSetFocus_(accept) { 
+    doSetFocus_(accept) {
         this._focused = accept;
         if (this.parent != null)
             this.parent.setFocusControl_(this, accept);
     }
 
-    doKillFocus_() { 
+    doKillFocus_() {
         this._focused = false;
         if (this.parent != null)
             this.parent.killFocusControl_(this);
@@ -565,7 +565,7 @@ export class TControl extends TComponent {
         }
     }
 
-    doVisibleChange_(val) { 
+    doVisibleChange_(val) {
         if (this._parent != null)
             this._parent.controlVisible_(this, val);
     }
@@ -588,7 +588,7 @@ export class TControl extends TComponent {
     doSetMarginBottom_(val) {
         this._marginBottom = val;
         this.reAlign();
-    }    
+    }
 
     doSetPaddingLeft_(val) {
         this._paddingLeft = val;
@@ -608,7 +608,7 @@ export class TControl extends TComponent {
     doSetPaddingBottom_(val) {
         this._paddingBottom = val;
         this.reAlign();
-    }    
+    }
 
     doMouseEnter_() {
         this.mouseStates.add(TMouseStates.MouseIn);
@@ -946,7 +946,7 @@ export class TControl extends TComponent {
 
     set marginBottom(val) {
         this.doSetMarginBottom_(val);
-    }    
+    }
 
     get paddingLeft() {
         return this._paddingLeft;
@@ -1232,7 +1232,7 @@ export class TScrollBar extends TControl {
                 this.thumRect_.bottom = this.height - this.rightBlank_ - this.buttonSize;
             }
         }
-    }    
+    }
 
     _setOrientation(val) {
         if (this._orientation != val) {
@@ -1477,8 +1477,8 @@ export class TScrollBar extends TControl {
             hclCanvas.pen.color = theme.backgroundHotColor;
             // 左按钮
             vRect.left = this.leftBtnRect_.left + Math.trunc((this.leftBtnRect_.width - 4) / 2) + 4;
-            vRect.top = this.leftBtnRect_.top + Math.trunc((this.leftBtnRect_.height - 7) / 2); 
-            hclCanvas.drawLine(vRect.left, vRect.top, vRect.left, vRect.top + 7); 
+            vRect.top = this.leftBtnRect_.top + Math.trunc((this.leftBtnRect_.height - 7) / 2);
+            hclCanvas.drawLine(vRect.left, vRect.top, vRect.left, vRect.top + 7);
             hclCanvas.drawLine(vRect.left - 1, vRect.top + 1, vRect.left - 1, vRect.top + 6);
             hclCanvas.drawLine(vRect.left - 2, vRect.top + 2, vRect.left - 2, vRect.top + 5);
             hclCanvas.drawLine(vRect.left - 3, vRect.top + 3, vRect.left - 3, vRect.top + 4);
@@ -1502,7 +1502,7 @@ export class TScrollBar extends TControl {
             hclCanvas.drawLine(vRect.left, vRect.top, vRect.right, vRect.top);
             hclCanvas.drawLine(vRect.right - 1, vRect.top, vRect.right - 1, vRect.bottom);
             hclCanvas.drawLine(vRect.right, vRect.bottom, vRect.left, vRect.bottom);
-            hclCanvas.drawLine(vRect.left, vRect.bottom, vRect.left, vRect.top);            
+            hclCanvas.drawLine(vRect.left, vRect.bottom, vRect.left, vRect.top);
             // 滑块上的修饰
             vRect.top = vRect.top + Math.trunc(vRect.height / 2);
             hclCanvas.drawLine(5, vRect.top, this.width - 5, vRect.top);
@@ -1690,7 +1690,7 @@ export class TWinControl extends TControl {
         this._captureControl = null;
         this._mouseMoveControl = null;
         this.state_.delete(TControlState.Creating);
-    }  
+    }
 
     doResize_() {
         super.doResize_();
@@ -1718,7 +1718,7 @@ export class TWinControl extends TControl {
         this.reAlign();
     }
 
-    broadcast(msg, wparam, lparam) { 
+    broadcast(msg, wparam, lparam) {
         let vControl = null;
         for (let i = this.controls.count - 1; i >= 0; i--) {
             vControl = this.controls[i];
@@ -1751,7 +1751,7 @@ export class TWinControl extends TControl {
             if (control.visible && (control.align == TAlign.Top)) {
                 control.left = this.paddingLeft + control.marginLeft;
                 control.top = vTop + control.marginTop;
-                control.width = this.width - this.paddingLeft - this.paddingRight 
+                control.width = this.width - this.paddingLeft - this.paddingRight
                     - control.marginLeft - control.marginRight;
                 control.reAlign();
                 vTop = control.top + control.height + control.marginBottom;
@@ -1763,7 +1763,7 @@ export class TWinControl extends TControl {
             control = this.controls[i];
             if (control.visible && (control.align == TAlign.Bottom)) {
                 control.left = this.paddingLeft + control.marginLeft;
-                control.width = this.width - this.paddingLeft - this.paddingRight 
+                control.width = this.width - this.paddingLeft - this.paddingRight
                     - control.marginLeft - control.marginRight;
                 vBottom = vBottom - control.marginBottom - control.height;
                 control.top = vBottom;
@@ -1778,7 +1778,7 @@ export class TWinControl extends TControl {
             if (control.visible && (control.align == TAlign.Left)) {
                 control.left = vLeft + control.marginLeft;
                 control.top = vTop + control.marginTop;
-                control.height = this.height - this.paddingBottom - this.paddingTop 
+                control.height = this.height - this.paddingBottom - this.paddingTop
                     - control.marginTop - control.marginBottom;
                 control.reAlign();
                 vLeft = control.left + control.width + control.marginRight;
@@ -1990,7 +1990,7 @@ export class TWinControl extends TControl {
     }
 
     doPaintBackground_(hclCanvas) {
-        if (this.image != null) 
+        if (this.image != null)
             hclCanvas.drawImage(this.image, 0, 0, this.width, this.height);
         else {
             hclCanvas.brush.color = theme.backgroundStaticColor;
