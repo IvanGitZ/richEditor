@@ -33,7 +33,7 @@ hcView.align = TAlign.Client;
 hcView.popupMenu = viewPopup;
 // 添加画布
 mainForm.addControl(hcView);
-//？
+//？注释掉目前没影响
 // hcView.setFocus();
 // 全屏，占满屏幕
 hcl.autoWidth = true;
