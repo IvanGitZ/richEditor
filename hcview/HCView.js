@@ -625,7 +625,7 @@ export class THCView extends TCustomControl {
             hclCanvas.font.name = "宋体";
             hclCanvas.font.color = "#d0d1d5";
             hclCanvas.font.styles.clear();
-            // hclCanvas.textOut(rect.left, rect.bottom + 4, "编辑器由 HCView 提供，技术交流QQ群：649023932");
+            hclCanvas.textOut(rect.left, rect.bottom + 4, "编辑器由 HCView 提供，技术交流QQ群：649023932");
         }
 
         if (this.FAnnotatePre.visible)
@@ -1265,6 +1265,7 @@ export class THCView extends TCustomControl {
     }
 
     doMouseUp_(e) {
+        console.log('输入-鼠标抬起', e, this)
         if (this.FStyle.updateInfo.selecting)
             this.AutoScrollTimer(false);
 
@@ -2419,7 +2420,6 @@ export class THCView extends TCustomControl {
     SaveToStream(stream, quick = false, areas = null) {
         HC._SaveFileFormatAndVersion(stream);
         this.DoSaveStreamBefor(stream);
-
         let vArea = areas;
         if (vArea == null) {
             vArea = new Set([]);

@@ -1139,6 +1139,7 @@ export var TScrollBarCode = {
     EndScroll: 8
 }
 
+// 设置滑块
 export class TScrollBar extends TControl {
     constructor() {
         super();
@@ -1509,7 +1510,7 @@ export class TScrollBar extends TControl {
             hclCanvas.drawLine(5, vRect.top - 3, this.width - 5, vRect.top - 3);
             hclCanvas.drawLine(5, vRect.top + 3, this.width - 5, vRect.top + 3);
             hclCanvas.paintPath();
-
+            //
             hclCanvas.beginPath();
             hclCanvas.pen.color = theme.backgroundHotColor;
             // 上按钮
@@ -1745,7 +1746,7 @@ export class TWinControl extends TControl {
         let vBottom = this.height - this.paddingBottom;
         let control = null;
 
-        // TAlign.alTop
+        // TAlign.alTop  注释后画布上方空白处消失
         for (let i = 0; i < this.controls.count; i++) {
             control = this.controls[i];
             if (control.visible && (control.align == TAlign.Top)) {
@@ -1759,18 +1760,18 @@ export class TWinControl extends TControl {
         }
 
         // TAlign.alBottom
-        for (let i = 0; i < this.controls.count; i++) {
-            control = this.controls[i];
-            if (control.visible && (control.align == TAlign.Bottom)) {
-                control.left = this.paddingLeft + control.marginLeft;
-                control.width = this.width - this.paddingLeft - this.paddingRight
-                    - control.marginLeft - control.marginRight;
-                vBottom = vBottom - control.marginBottom - control.height;
-                control.top = vBottom;
-                control.reAlign();
-                vBottom = control.top - control.marginTop;
-            }
-        }
+        // for (let i = 0; i < this.controls.count; i++) {
+        //     control = this.controls[i];
+        //     if (control.visible && (control.align == TAlign.Bottom)) {
+        //         control.left = this.paddingLeft + control.marginLeft;
+        //         control.width = this.width - this.paddingLeft - this.paddingRight
+        //             - control.marginLeft - control.marginRight;
+        //         vBottom = vBottom - control.marginBottom - control.height;
+        //         control.top = vBottom;
+        //         control.reAlign();
+        //         vBottom = control.top - control.marginTop;
+        //     }
+        // }
 
         // TAlign.alLeft
         for (let i = 0; i < this.controls.count; i++) {
@@ -1895,7 +1896,8 @@ export class TWinControl extends TControl {
         else
             super.doMouseDown_(e);
     }
-
+    
+    // 鼠标点击画布时操作
     mouseDown(e) {
         this._captureControl = this.getControlAt(e.x, e.y);
         if (this._captureControl != null) {

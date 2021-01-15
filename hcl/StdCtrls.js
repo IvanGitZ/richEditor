@@ -778,6 +778,9 @@ export class TCheckBox extends TLable {
     }
 }
 
+/*
+*  创建输入框对象
+* */
 export class TInputControl extends TTextControl {
     constructor(text) {
         super(text);

@@ -50,11 +50,13 @@ class TIme {
 
         this._input.addEventListener('compositionend', (e) => {
             // 非直接输入结束(如中文输入过程开始)
+            console.log('输入-中文输入结束', e.data)
             this._doInput(e.data);
             //console.log("非直接输入结束");
         });
 
         this._input.oninput = (e) => {
+            console.log('输入-开始', e)
             if (!e.isComposing) {  // 非编码输入（直接键盘上的键）
                 this._input.value = "";
                 // 中文标点符号
@@ -78,6 +80,7 @@ class TIme {
     }
 
     _doInput(str, isPaste = false) {
+        console.log('111', str)
         this._input.value = "";
         if (this._control !== null)
             this._control.imeInput(str, isPaste);
