@@ -339,8 +339,11 @@ export class THCView extends TCustomControl {
 
         this.FStyle = new THCStyle(true, true);
         this.FStyle.onInvalidateRect = (rect) => { this.DoStyleInvalidateRect(rect); }
+        // sections的来源
         this.FSections = new TList();
+        // 给FSections中添加初始化对象
         this.FSections.add(this.NewDefaultSection());
+        // 初始化FActiveSectionIndex
         this.FActiveSectionIndex = 0;
         this.FDisplayFirstSection = 0;
         this.FDisplayLastSection = 0;
@@ -738,7 +741,8 @@ export class THCView extends TCustomControl {
         vResult.OnCurParaNoChange = (sender) => { this.DoSectionCurParaNoChange(sender); }
         vResult.OnCaretItemChanged = (sender, data, item) => { this.DoSectionCaretItemChanged(sender, data, item); }
         vResult.OnActivePageChange = (sender) => { this.DoSectionActivePageChange(sender); }
-
+        
+        console.log('初始化sections-vResult', vResult)
         return vResult;
     }
 
@@ -1005,6 +1009,7 @@ export class THCView extends TCustomControl {
     }
 
     GetActiveSection() {
+        // 获取当前活动页面
         return this.FSections[this.FActiveSectionIndex];
     }
 
@@ -1184,6 +1189,7 @@ export class THCView extends TCustomControl {
     }
 
     DoInsertText(text) {
+        console.log('输入中文-DoInsertText', text)
         return this.ActiveSection.InsertText(text);
     }
 
@@ -1294,6 +1300,7 @@ export class THCView extends TCustomControl {
 
         super.doMouseUp_(e);
         if (this.imeMode == TImeMode.Active)
+            console.log('传入的this', this)
             ime.setControl(this);
     }
 
@@ -1344,6 +1351,7 @@ export class THCView extends TCustomControl {
     }
 
     imeInput(text, isPaste) {
+        console.log('输入中文-输入内容', text)
         if (isPaste && this._innerPasted)
             return;
 
@@ -1648,7 +1656,8 @@ export class THCView extends TCustomControl {
     }
 
     InsertText(text) {
-        this.BeginUpdate();
+        console.log('输入中文-插入文本', text)
+        this.BeginUpdate(); //使FUpdateCount增大
         try {
             return this.DoInsertText(text);
         } finally {

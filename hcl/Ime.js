@@ -80,7 +80,6 @@ class TIme {
     }
 
     _doInput(str, isPaste = false) {
-        console.log('111', str)
         this._input.value = "";
         if (this._control !== null)
             this._control.imeInput(str, isPaste);
