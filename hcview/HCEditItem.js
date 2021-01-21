@@ -115,7 +115,7 @@ export class THCEditItem extends THCControlItem {
             this.Height = this.FMinHeight;
     }
 
-    DoPaint(style, drawRect, dataDrawTop, dataDrawBottom, 
+    DoPaint(style, drawRect, dataDrawTop, dataDrawBottom,
         dataScreenTop, dataScreenBottom, hclCanvas, paintInfo)
     {
         super.DoPaint(style, drawRect, dataDrawTop, dataDrawBottom, dataScreenTop,
@@ -233,7 +233,7 @@ export class THCEditItem extends THCControlItem {
             if (e.x < 0)
                 this.FLeftOffset = Math.max(0, this.FLeftOffset - this.OwnerData.Style.TextStyles[this.TextStyleNo].TextMetric_tmAveCharWidth);
             else if (e.x > this.Width - this.FPaddingRight)
-                this.FLeftOffset = Math.max(0, Math.min(this.FTextSize.width - this.Width + this.FPaddingRight, 
+                this.FLeftOffset = Math.max(0, Math.min(this.FTextSize.width - this.Width + this.FPaddingRight,
                     this.FLeftOffset + this.OwnerData.Style.TextStyles[this.TextStyleNo].TextMetric_tmAveCharWidth));
 
             this.FSelEnd = HC.GetNorAlignCharOffsetAt(this.OwnerData.Style.TempCanvas, this.FText, e.x - this.FPaddingLeft + this.FLeftOffset);

@@ -3,6 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="b0d4402c-482c-4660-b878-00f8e98f5206" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HCViewDemo.js" beforeDir="false" afterPath="$PROJECT_DIR$/HCViewDemo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hcview/HCEditItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/hcview/HCEditItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hcview/HCExpressItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/hcview/HCExpressItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hcview/HCFractionItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/hcview/HCFractionItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hcview/HCRichData.js" beforeDir="false" afterPath="$PROJECT_DIR$/hcview/HCRichData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hcview/HCSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/hcview/HCSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hcview/HCStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/hcview/HCStyle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hcview/HCView.js" beforeDir="false" afterPath="$PROJECT_DIR$/hcview/HCView.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,9 +23,9 @@
   </component>
   <component name="ProjectId" id="1mfqyYN2JLFOmTZIykGQLFCN3QJ" />
   <component name="PropertiesComponent">
+    <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

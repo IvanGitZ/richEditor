@@ -257,7 +257,7 @@ export class THCStyle extends TObject {
         // let vResult = "<style type=\"text/css\">";
         // for (int i = 0; i <= FTextStyles.count - 1; i++) {
         //     vResult = vResult + HC.sLineBreak + "a.fs" + i.ToString() + " {";
-        //     vResult = vResult + FTextStyles[i].ToCSS() + " }"; 
+        //     vResult = vResult + FTextStyles[i].ToCSS() + " }";
         // }
 
         // for (int i = 0; i <= FParaStyles.count - 1; i++) {

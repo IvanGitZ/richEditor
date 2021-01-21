@@ -123,7 +123,7 @@ export class THCCustomSection extends TObject {
             return TPoint.Create(0, 0);
     }
 
-    DoDataDrawItemPaintBefor(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, 
+    DoDataDrawItemPaintBefor(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight,
         dataDrawBottom, dataScreenTop, dataScreenBottom, hclCanvas, paintInfo) {
         if (this.FOnDrawItemPaintBefor != null)
             this.FOnDrawItemPaintBefor(this, data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight,
@@ -137,7 +137,7 @@ export class THCCustomSection extends TObject {
                 dataDrawLeft, dataDrawRight, dataDrawBottom, dataScreenTop, dataScreenBottom, hclCanvas, paintInfo);
     }
 
-    DoDataDrawItemPaintAfter(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom, 
+    DoDataDrawItemPaintAfter(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom,
         dataScreenTop, dataScreenBottom, hclCanvas, paintInfo) {
         if (this.FOnDrawItemPaintAfter != null)
             this.FOnDrawItemPaintAfter(this, data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight,
@@ -590,15 +590,15 @@ export class THCCustomSection extends TObject {
         data.OnCreateItem = (sender) => { this.DoDataCreateItem(sender); }
         data.OnReadOnlySwitch = (sender) => { this.DoDataReadOnlySwitch(sender); }
         data.OnGetScreenCoord = (x, y) => { return this.DoGetScreenCoordEvent(x, y); }
-        data.OnDrawItemPaintBefor = (data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, 
+        data.OnDrawItemPaintBefor = (data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight,
             dataDrawBottom, dataScreenTop, dataScreenBottom, hclCanvas, paintInfo) => {
-                this.DoDataDrawItemPaintBefor(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, 
+                this.DoDataDrawItemPaintBefor(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight,
                     dataDrawBottom, dataScreenTop, dataScreenBottom, hclCanvas, paintInfo);
         }
 
-        data.OnDrawItemPaintAfter = (data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom, 
+        data.OnDrawItemPaintAfter = (data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom,
             dataScreenTop, dataScreenBottom, hclCanvas, paintInfo) => {
-                this.DoDataDrawItemPaintAfter(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom, 
+                this.DoDataDrawItemPaintAfter(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom,
                     dataScreenTop, dataScreenBottom, hclCanvas, paintInfo);
         }
 
@@ -782,6 +782,7 @@ export class THCCustomSection extends TObject {
                 case TKey.Delete:
                 case TKey.Return:
                 case TKey.Tab:
+                    console.log(111)
                     this.DoSectionDataAction(this.FActiveData, () => {
                         this.FActiveData.KeyDown(e);
                         return true;
@@ -2072,7 +2073,7 @@ export class THCCustomSection extends TObject {
     }
 
     get PaperSize() {
-        return this.GetPaperSize(); 
+        return this.GetPaperSize();
     }
 
     set PaperSize(val) {
@@ -2082,7 +2083,7 @@ export class THCCustomSection extends TObject {
     get PaperWidth() {
         return this.GetPaperWidth();
     }
-        
+    
     set PaperWidth(val) {
         this.SetPaperWidth(val);
     }
@@ -2240,7 +2241,7 @@ export class THCCustomSection extends TObject {
     }
 
     get PageNoVisible() {
-        return this.FPageNoVisible; 
+        return this.FPageNoVisible;
     }
 
     set PageNoVisible(val) {
@@ -2516,7 +2517,7 @@ export class THCCustomSection extends TObject {
         return this.FOnCaretItemChanged;
     }
 
-    set OnCaretItemChanged(val) { 
+    set OnCaretItemChanged(val) {
         this.FOnCaretItemChanged = val;
     }
 

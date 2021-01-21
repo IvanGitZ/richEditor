@@ -1971,7 +1971,7 @@ export class THCView extends TCustomControl {
                 break;
             }
         }
-            
+        
         if (this.FDisplayFirstSection >= 0) {
             let vY = this.FVScrollBar.position + this.FViewHeight;
             for (let i = this.FDisplayFirstSection; i <= this.FSections.count - 1; i++) {
@@ -2312,7 +2312,7 @@ export class THCView extends TCustomControl {
         //                 finally
         //                 {
         //                     vPaintInfo.restoreCanvasScale(vBmpCanvas, vScaleInfo);
-        //                 }                            
+        //                 }
         //             }
 
         //             vBmpCanvas.Dispose();
@@ -2568,7 +2568,7 @@ export class THCView extends TCustomControl {
         return this.PrintPages(printer, copies, vPages);
     }
 
-    PrintPages(printer, copies, pages) {          
+    PrintPages(printer, copies, pages) {
 
     }
 
@@ -2669,7 +2669,7 @@ export class THCView extends TCustomControl {
 
             let vStartDrawItemNo = vTopData.GetDrawItemNoByOffset(vTopData.SelectInfo.StartItemNo, vTopData.SelectInfo.StartItemOffset);
             let vEndDrawItemNo = vTopData.GetDrawItemNoByOffset(vTopData.SelectInfo.EndItemNo, vTopData.SelectInfo.EndItemOffset);
-                
+            
             let vStartDrawRect = new TRect();
             let vEndDrawRect = new TRect();
 
@@ -3102,4 +3102,4 @@ export class THCView extends TCustomControl {
     set OnViewResize(val) {
         this.FOnViewResize = val;
     }
-} 
+}

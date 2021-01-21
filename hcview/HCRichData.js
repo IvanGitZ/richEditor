@@ -31,7 +31,7 @@ export class THCRichData extends THCUndoData {
 
         this.FMouseLBDouble = false;
         this.FMouseDownReCaret = false;
-        this.FMouseDownX = -1; 
+        this.FMouseDownX = -1;
         this.FMouseDownY = -1;
         this.FMouseMoveDrawItemNo = -1;
         this.FSelectSeekNo = -1;
@@ -960,7 +960,7 @@ export class THCRichData extends THCUndoData {
     }
 
     ApplyTableCellAlign(align) {
-        if (!this.CanEdit()) 
+        if (!this.CanEdit())
             return;
 
         this.RectItemAction((rectItem) => {
@@ -1318,7 +1318,7 @@ export class THCRichData extends THCUndoData {
         if (!this.CanEdit())
             return false;
 
-        if (!this.DoAcceptAction(this.SelectInfo.StartItemNo, this.SelectInfo.StartItemOffset, THCAction.InsertItem)) 
+        if (!this.DoAcceptAction(this.SelectInfo.StartItemNo, this.SelectInfo.StartItemOffset, THCAction.InsertItem))
             return false;
 
         if (!this.SelectPerfect())
@@ -1501,7 +1501,7 @@ export class THCRichData extends THCUndoData {
                     && (!this.Items[vInsetLastNo + 1].ParaFirst)
                     && this.MergeItemText(this.Items[vInsetLastNo], this.Items[vInsetLastNo + 1]))
                 {
-                    this.UndoAction_InsertText(vInsetLastNo, this.Items[vInsetLastNo].length - this.Items[vInsetLastNo + 1].length + 1, 
+                    this.UndoAction_InsertText(vInsetLastNo, this.Items[vInsetLastNo].length - this.Items[vInsetLastNo + 1].length + 1,
                         this.Items[vInsetLastNo + 1].Text);
                     this.UndoAction_DeleteItem(vInsetLastNo + 1, 0);
 
@@ -1602,7 +1602,7 @@ export class THCRichData extends THCUndoData {
 
                     let vText = this.Items[vCurItemNo].Text;
                     let vsBefor = vText.substr(1 - 1, this.SelectInfo.StartItemOffset);
-                    let vsAfter = vText.substr(this.SelectInfo.StartItemOffset + 1 - 1, 
+                    let vsAfter = vText.substr(this.SelectInfo.StartItemOffset + 1 - 1,
                         this.Items[vCurItemNo].length - this.SelectInfo.StartItemOffset);
 
                     this.Undo_New();
@@ -2422,7 +2422,7 @@ export class THCRichData extends THCUndoData {
                     
                     if (HC.UNPLACEHOLDERCHAR) {
                         if (HC.IsUnPlaceHolderChar(this.Items[this.SelectInfo.StartItemNo].Text[this.SelectInfo.StartItemOffset + 1 - 1]))
-                            this.SelectInfo.StartItemOffset = this.GetItemActualOffset(this.SelectInfo.StartItemNo, this.SelectInfo.StartItemOffset) - 1;                   
+                            this.SelectInfo.StartItemOffset = this.GetItemActualOffset(this.SelectInfo.StartItemNo, this.SelectInfo.StartItemOffset) - 1;
                     }
                 } else {
                     if (this.SelectInfo.StartItemNo > 0) {
@@ -3604,7 +3604,7 @@ export class THCRichData extends THCUndoData {
                             vFormatFirstDrawItemNo = vRange.firstDrawItemNo;
                             vFormatLastItemNo = vRange.lastItemNo;
                             this.FormatPrepare(vFormatFirstDrawItemNo, vFormatLastItemNo);
-                                
+                            
                             this.UndoAction_DeleteItem(vCurItemNo, 0);
                             this.Items.delete(vCurItemNo);
 
@@ -3968,6 +3968,7 @@ export class THCRichData extends THCUndoData {
             || (Key == TKey.Delete)
             || (Key == TKey.Return)
             || (Key == TKey.Tab))
+            console.log(222)
             this.InitializeMouseField();  // 如果Item删除完了，原MouseMove处ItemNo可能不存在了，再MouseMove时清除旧的出错
 
         let vCurItem = this.GetActiveItem();
@@ -4044,6 +4045,7 @@ export class THCRichData extends THCUndoData {
             case TKey.Delete:
             case TKey.Return:
             case TKey.Tab:
+                console.log(333)
                 this.Style.updateInfoRePaint();
                 this.Style.updateInfoReCaret();
                 this.Style.updateInfoReScroll();

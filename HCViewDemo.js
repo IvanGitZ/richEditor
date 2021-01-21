@@ -23,7 +23,7 @@ import { THCBarCodeItem } from "./hcview/HCBarCodeItem.js";
 import { THCContentAlign, HC } from "./hcview/HCCommon.js";
 import { clipboard, TDataFormat } from "./hcl/Clipboard.js";
 import { THCCustomRectItem } from "./hcview/HCRectItem.js";
-import { THCStyle } from "./hcview/HCStyle.js"; 
+import { THCStyle } from "./hcview/HCStyle.js";
 import { THCFloatBarCodeItem } from "./hcview/HCFloatBarCodeItem.js";
 
 application.icon.src = "./image/hcview.png";
@@ -34,7 +34,7 @@ mainForm.captionBar.addButton("编辑");
 
 let menuInsert = new TPopupMenu();
 menuInsert.dropDownStyle = true;
-menuInsert.addItem("表格").onClick = () => { 
+menuInsert.addItem("表格").onClick = () => {
     let vFrmInsertTable = new TFrmInsertTable();
     vFrmInsertTable.showModal(() => {
         hcView.InsertTable(vFrmInsertTable.edtRowCount.text, vFrmInsertTable.edtColCount.text);
@@ -187,6 +187,50 @@ toolbar.addSpliter();
 toolbar.addButton("撤销", false, "./image/undo.png").onClick = () => { hcView.Undo(); }
 toolbar.addButton("恢复", false, "./image/redo.png").onClick = () => { hcView.Redo(); }
 toolbar.addSpliter();
+const str1 = '%1%'
+const str2 = '#2#'
+toolbar.addButton("插入数据元1").onClick = function(event) {
+    hcView.InsertText(str1)
+    console.log('插入数据源', hcView.ActiveSection)
+}
+toolbar.addButton("插入数据元2").onClick = function(event) {
+    hcView.InsertText(str2)
+}
+toolbar.addButton("替换数据源").onClick = function(event) {
+    console.log('获取section', hcView.ActiveSection)
+    const textArr = hcView.ActiveSection.Page.Items
+    textArr.forEach((item) => {
+        if (item._className === 'THCTextItem') {
+            // 文本类型
+            textReplace(item, str1, '替111111111')
+            textReplace(item, str2, '换222222222')
+        }
+        else if (item._className === 'THCTableItem') {
+            tableTextReplace(item, str1, '替111111')
+            tableTextReplace(item, str2, '换222222')
+        }
+    })
+}
+function textReplace(item, str, replaceStr) {
+    if (item.GetText().indexOf(str) >= 0) {
+        let text = item.GetText()
+        text = text.replace(new RegExp(str,'g'), replaceStr)
+        item.SetText(text)
+        // 替换文本后刷新页面
+        hcView.UpdateView()
+    }
+}
+function tableTextReplace(item, str, replaceStr) {
+    item.Rows.forEach((it) => {
+        // it表格的每一行
+        it.forEach((i) => {
+            // 每一行的每一列
+            i.FCellData.FItems.forEach((ii) => {
+                textReplace(ii, str, replaceStr)
+            })
+        })
+    })
+}
 let cbbFont = new TFontCombobox("");
 cbbFont.dropDownStyle = TDropDownStyle.DropDownList;
 cbbFont.align = TAlign.Left;
