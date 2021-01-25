@@ -3993,12 +3993,12 @@ export class THCRichData extends THCUndoData {
         let vItemRang = this.GetParaItemRang(this.SelectInfo.StartItemNo, vParaFirstItemNo, vParaLastItemNo);
         vParaFirstItemNo = vItemRang.a;
         vParaLastItemNo = vItemRang.b;
-
         if (vCurItem.StyleNo < THCStyle.Null)
             vCurItem = this.RectItemKeyDown(vSelectExist, vCurItem, e, pageBreak);
         else {
             switch (Key) {
                 case TKey.Back:
+                    console.log(333, vSelectExist, vCurItem, vParaFirstItemNo, vParaLastItemNo, e)
                     vCurItem = this.BackspaceKeyDown(vSelectExist, vCurItem, vParaFirstItemNo, vParaLastItemNo, e);
                     break;
 
@@ -4045,7 +4045,6 @@ export class THCRichData extends THCUndoData {
             case TKey.Delete:
             case TKey.Return:
             case TKey.Tab:
-                console.log(333)
                 this.Style.updateInfoRePaint();
                 this.Style.updateInfoReCaret();
                 this.Style.updateInfoReScroll();
@@ -4120,7 +4119,7 @@ export class THCRichData extends THCUndoData {
             this.SelectInfo.StartItemNo = vItemNo;
             this.SelectInfo.StartItemOffset = vStartOffset + this.DrawItems[vDrawItemNo].CharOffs - 1;
 
-            if (vStartOffset != vEndOffset) {
+            if ( vStartOffset != vEndOffset) {
                 this.SelectInfo.EndItemNo = vItemNo;
                 this.SelectInfo.EndItemOffset = vEndOffset + this.DrawItems[vDrawItemNo].CharOffs - 1;
                 this.MatchItemSelectState();
@@ -4546,12 +4545,16 @@ export class THCRichData extends THCUndoData {
             } else {
                 let vNewPara = false;
                 let vAddCount = 0;
+                // StartItemNo为当前item的序号
+                // CurStyleNo是文本的样式类型
                 this.CurStyleNo = this.Items[this.SelectInfo.StartItemNo].StyleNo;
                 vRange = this.GetFormatRange(vFormatFirstDrawItemNo, vFormatLastItemNo);
+                // 获取要画的初始位置和结束位置
                 vFormatFirstDrawItemNo = vRange.firstDrawItemNo;
                 vFormatLastItemNo = vRange.lastItemNo;
+                
                 this.FormatPrepare(vFormatFirstDrawItemNo, vFormatLastItemNo);
-
+                console.log('vRange', HC.sLineBreak)
                 let vStrings = text.split(HC.sLineBreak);
 
                 let vS;

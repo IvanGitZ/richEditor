@@ -187,6 +187,21 @@ toolbar.addSpliter();
 toolbar.addButton("撤销", false, "./image/undo.png").onClick = () => { hcView.Undo(); }
 toolbar.addButton("恢复", false, "./image/redo.png").onClick = () => { hcView.Redo(); }
 toolbar.addSpliter();
+toolbar.addButton('插入图片').onClick = function(event) {
+    TOpenDialog.execute(String.format("{0}", TFileType.IMAGE), (openDlg) => {
+        let vTopData = hcView.ActiveSectionTopLevelData();
+        console.log('图片-1', vTopData)
+        let vImageItem = new THCImageItem(vTopData);
+        console.log('图片-2', vImageItem)
+        console.log('图片-3', openDlg.firstFile)
+        vImageItem.LoadFromBmpFile(openDlg.firstFile, () => {
+            vImageItem.RestrainSize(vTopData.width, vImageItem.Height);
+            hcView.InsertItem(vImageItem);
+        });
+    });
+}
+
+let vStyle = new THCStyle()
 const str1 = '%1%'
 const str2 = '#2#'
 toolbar.addButton("插入数据元1").onClick = function(event) {
@@ -214,10 +229,23 @@ toolbar.addButton("替换数据源").onClick = function(event) {
 function textReplace(item, str, replaceStr) {
     if (item.GetText().indexOf(str) >= 0) {
         let text = item.GetText()
+        console.log('item', item)
         text = text.replace(new RegExp(str,'g'), replaceStr)
         item.SetText(text)
         // 替换文本后刷新页面
         hcView.UpdateView()
+        
+        //
+        // let text = item.GetText()
+        // let beforeText = text.substring(0, item.GetText().indexOf(str))
+        // let afterText = text.substring(item.GetText().indexOf(str) + str.length)
+        // console.log('前后值', item, beforeText, afterText)
+        // item.FText = ''
+        // hcView.InsertText(beforeText)
+        // hcView.InsertText(replaceStr)
+        // hcView.InsertText(afterText)
+        // // 递归调用替换全部
+        // textReplace(item, str, replaceStr)
     }
 }
 function tableTextReplace(item, str, replaceStr) {
