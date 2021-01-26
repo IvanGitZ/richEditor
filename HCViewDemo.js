@@ -25,6 +25,8 @@ import { clipboard, TDataFormat } from "./hcl/Clipboard.js";
 import { THCCustomRectItem } from "./hcview/HCRectItem.js";
 import { THCStyle } from "./hcview/HCStyle.js";
 import { THCFloatBarCodeItem } from "./hcview/HCFloatBarCodeItem.js";
+//
+import { THCRichData } from "./hcview/HCRichData.js";
 
 application.icon.src = "./image/hcview.png";
 let mainForm = application.mainForm;
@@ -206,10 +208,11 @@ const str1 = '%1%'
 const str2 = '#2#'
 toolbar.addButton("插入数据元1").onClick = function(event) {
     hcView.InsertText(str1)
-    console.log('插入数据源', hcView.ActiveSection)
+    console.log('插入数据源1', hcView.ActiveSection)
 }
 toolbar.addButton("插入数据元2").onClick = function(event) {
     hcView.InsertText(str2)
+    console.log('插入数据源2', hcView.ActiveSection)
 }
 toolbar.addButton("替换数据源").onClick = function(event) {
     console.log('获取section', hcView.ActiveSection)
@@ -234,7 +237,6 @@ function textReplace(item, str, replaceStr) {
         item.SetText(text)
         // 替换文本后刷新页面
         hcView.UpdateView()
-        
         //
         // let text = item.GetText()
         // let beforeText = text.substring(0, item.GetText().indexOf(str))

@@ -4552,15 +4552,16 @@ export class THCRichData extends THCUndoData {
                 // 获取要画的初始位置和结束位置
                 vFormatFirstDrawItemNo = vRange.firstDrawItemNo;
                 vFormatLastItemNo = vRange.lastItemNo;
-                
+                // 准备格式
                 this.FormatPrepare(vFormatFirstDrawItemNo, vFormatLastItemNo);
-                console.log('vRange', HC.sLineBreak)
                 let vStrings = text.split(HC.sLineBreak);
+                console.log('输入的文本vStrings', vStrings)
 
                 let vS;
                 for (let i = 0; i < vStrings.length; i++) {
                     vS = vStrings[i];
                     vAddCount = this.DoInsertTextEx(vS, vNewPara, vAddCount);
+                    console.log('vAddCount', vAddCount)
                     vNewPara = true;
                 }
 
