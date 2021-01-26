@@ -41,6 +41,10 @@ export class THCCustomDrawItem extends TObject {
     CharOffsetEnd() {
         return this.CharOffs + this.CharLen - 1;
     }
+    
+    SetCharLen(val) {
+        this.CharLen = val
+    }
 
     get width() {
         return this.rect.width;

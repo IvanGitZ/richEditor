@@ -206,9 +206,11 @@ toolbar.addButton('插入图片').onClick = function(event) {
 let vStyle = new THCStyle()
 const str1 = '%1%'
 const str2 = '#2#'
+const replaceStr1 = '使用这段文字替换掉%1%'
+const replaceStr2 = '使用这段文字替换掉#2#'
 toolbar.addButton("插入数据元1").onClick = function(event) {
     hcView.InsertText(str1)
-    console.log('插入数据源1', hcView.ActiveSection)
+    console.log('插入数据源1', hcView)
 }
 toolbar.addButton("插入数据元2").onClick = function(event) {
     hcView.InsertText(str2)
@@ -217,24 +219,27 @@ toolbar.addButton("插入数据元2").onClick = function(event) {
 toolbar.addButton("替换数据源").onClick = function(event) {
     console.log('获取section', hcView.ActiveSection)
     const textArr = hcView.ActiveSection.Page.Items
-    textArr.forEach((item) => {
+    const drawArr = hcView.ActiveSection.Page.DrawItems
+    textArr.forEach((item, i) => {
         if (item._className === 'THCTextItem') {
             // 文本类型
-            textReplace(item, str1, '替111111111')
-            textReplace(item, str2, '换222222222')
+            textReplace(item, drawArr[i], str1, replaceStr1)
+            textReplace(item, drawArr[i], str2, replaceStr2)
         }
         else if (item._className === 'THCTableItem') {
-            tableTextReplace(item, str1, '替111111')
-            tableTextReplace(item, str2, '换222222')
+            tableTextReplace(item, str1, replaceStr1)
+            tableTextReplace(item, str2, replaceStr2)
         }
     })
 }
-function textReplace(item, str, replaceStr) {
+function textReplace(item, drawItem, str, replaceStr) {
     if (item.GetText().indexOf(str) >= 0) {
         let text = item.GetText()
         console.log('item', item)
+        
         text = text.replace(new RegExp(str,'g'), replaceStr)
         item.SetText(text)
+        drawItem.SetCharLen(text.length)
         // 替换文本后刷新页面
         hcView.UpdateView()
         //
@@ -255,8 +260,9 @@ function tableTextReplace(item, str, replaceStr) {
         // it表格的每一行
         it.forEach((i) => {
             // 每一行的每一列
-            i.FCellData.FItems.forEach((ii) => {
-                textReplace(ii, str, replaceStr)
+            console.log('表格', i.FCellData)
+            i.FCellData.Items.forEach((ii, index) => {
+                textReplace(ii, i.FCellData.DrawItems[index], str, replaceStr)
             })
         })
     })

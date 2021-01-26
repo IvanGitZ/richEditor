@@ -4561,10 +4561,8 @@ export class THCRichData extends THCUndoData {
                 for (let i = 0; i < vStrings.length; i++) {
                     vS = vStrings[i];
                     vAddCount = this.DoInsertTextEx(vS, vNewPara, vAddCount);
-                    console.log('vAddCount', vAddCount)
                     vNewPara = true;
                 }
-
                 this.ReFormatData(vFormatFirstDrawItemNo, vFormatLastItemNo + vAddCount, vAddCount);
                 vResult = true;
             }
@@ -4579,7 +4577,7 @@ export class THCRichData extends THCUndoData {
         this.Style.updateInfoRePaint();
         this.Style.updateInfoReCaret();
         this.Style.updateInfoReScroll();
-
+    
         return vResult;
     }
 

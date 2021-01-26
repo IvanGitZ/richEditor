@@ -41,7 +41,7 @@ export class THCItemTraverse extends TObject {
 export class TSelectInfo extends TObject {
     constructor() {
         super();
-        this.Initialize();        
+        this.Initialize();
     }
 
     Initialize() {
@@ -81,31 +81,31 @@ export class THCCustomData extends TObject {
         this.FOnDrawItemPaintContent = null;
     }
 
-    DrawItemPaintBefor(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom, 
+    DrawItemPaintBefor(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom,
         dataScreenTop, dataScreenBottom, hclCanvas, paintInfo)
     {
         hclCanvas.save();
         try {
-            this.DoDrawItemPaintBefor(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom, 
+            this.DoDrawItemPaintBefor(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom,
                 dataScreenTop, dataScreenBottom, hclCanvas, paintInfo);
         } finally {
             hclCanvas.restore();
         }
     }
 
-    DrawItemPaintAfter(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom, 
+    DrawItemPaintAfter(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom,
         dataScreenTop, dataScreenBottom, hclCanvas, paintInfo)
     {
         hclCanvas.save();
         try {
-            this.DoDrawItemPaintAfter(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom, 
+            this.DoDrawItemPaintAfter(data, itemNo, drawItemNo, drawRect, dataDrawLeft, dataDrawRight, dataDrawBottom,
                 dataScreenTop, dataScreenBottom, hclCanvas, paintInfo);
         } finally {
             hclCanvas.restore();
         }
     }
 
-    DrawItemPaintContent(data, itemNo, drawItemNo, drawRect, clearRect, drawText, dataDrawLeft, dataDrawRight, dataDrawBottom, 
+    DrawItemPaintContent(data, itemNo, drawItemNo, drawRect, clearRect, drawText, dataDrawLeft, dataDrawRight, dataDrawBottom,
         dataScreenTop, dataScreenBottom, hclCanvas, paintInfo)
     {
         hclCanvas.save();
@@ -167,7 +167,7 @@ export class THCCustomData extends TObject {
                     else
                         this.FItems[itemNo].SelectComplate();
                 } else {
-                    if ((this.FSelectInfo.StartItemOffset == 0) && (this.FSelectInfo.EndItemOffset == this.FItems[itemNo].length)) 
+                    if ((this.FSelectInfo.StartItemOffset == 0) && (this.FSelectInfo.EndItemOffset == this.FItems[itemNo].length))
                         this.FItems[itemNo].SelectComplate();
                     else
                         this.FItems[itemNo].SelectPart();
@@ -391,15 +391,15 @@ export class THCCustomData extends TObject {
                 vDescent = vDescent + vOtherLeading;
                 vResult = vAscent + vDescent;
                 switch (paraStyle.LineSpaceMode) {
-                    case TParaLineSpaceMode.PLS115: 
+                    case TParaLineSpaceMode.PLS115:
                         vResult = vResult + Math.trunc(3 * vResult / 20);
                         break;
 
-                    case TParaLineSpaceMode.PLS150: 
+                    case TParaLineSpaceMode.PLS150:
                         vResult = Math.trunc(3 * vResult / 2);
                         break;
 
-                    case TParaLineSpaceMode.PLS200: 
+                    case TParaLineSpaceMode.PLS200:
                         vResult = vResult * 2;
                         break;
 
@@ -470,7 +470,7 @@ export class THCCustomData extends TObject {
         }
     }
 
-    DoDrawItemPaintContent(data, itemNo, drawItemNo, drawRect, clearRect, drawText, dataDrawLeft, dataDrawRight, 
+    DoDrawItemPaintContent(data, itemNo, drawItemNo, drawRect, clearRect, drawText, dataDrawLeft, dataDrawRight,
         dataDrawBottom, dataScreenTop, dataScreenBottom, hclCanvas, paintInfo)
     {
         if (this.FOnDrawItemPaintContent != null) {
@@ -728,7 +728,7 @@ export class THCCustomData extends TObject {
                                 offset = HC.OffsetAfter;
                         } else
                             offset = this.GetDrawItemOffsetAt(i, x);
-                    } else 
+                    } else
                         offset = this.FDrawItems[i].CharOffs + this.GetDrawItemOffsetAt(i, x) - 1;
 
                     break;
@@ -882,11 +882,11 @@ export class THCCustomData extends TObject {
         let vDrawRect = aDrawItem.rect.inFlate(0, -vLineSpaceHalf, true);
 
         switch (this.FStyle.ParaStyles[this.FItems[itemNo].ParaNo].AlignVert) {
-            case TParaAlignVert.Center: 
+            case TParaAlignVert.Center:
                 caretInfo.y = caretInfo.y + vLineSpaceHalf + (vDrawRect.height - rectItem.Height) / 2;
                 break;
 
-            case TParaAlignVert.Top: 
+            case TParaAlignVert.Top:
                 caretInfo.y = caretInfo.y + vLineSpaceHalf;
                 break;
             
@@ -946,7 +946,7 @@ export class THCCustomData extends TObject {
 
     GetItemLastDrawItemNo(itemNo) {
         let vResult = -1;
-        if (this.FItems[itemNo].FirstDItemNo < 0)                
+        if (this.FItems[itemNo].FirstDItemNo < 0)
             return vResult;
 
         vResult = this.FItems[itemNo].FirstDItemNo + 1;
@@ -1006,11 +1006,11 @@ export class THCCustomData extends TObject {
         ay = ay - vDrawRect.top;
         if (this.FItems[itemNo].StyleNo < THCStyle.Null) {
             switch (this.FStyle.ParaStyles[this.FItems[itemNo].ParaNo].AlignVert) {
-                case TParaAlignVert.Center: 
+                case TParaAlignVert.Center:
                     ay = ay - Math.trunc((vDrawRect.height - this.FItems[itemNo].Height) / 2);
                     break;
 
-                case TParaAlignVert.Top: 
+                case TParaAlignVert.Top:
                     break;
 
                 default:
@@ -1441,7 +1441,7 @@ export class THCCustomData extends TObject {
     }
 
     SelectedResizing() {
-        if ((this.FSelectInfo.StartItemNo >= 0) && (this.FSelectInfo.EndItemNo < 0) 
+        if ((this.FSelectInfo.StartItemNo >= 0) && (this.FSelectInfo.EndItemNo < 0)
             && (this.FItems[this.FSelectInfo.StartItemNo].isClass(THCResizeRectItem)))
             return this.FItems[this.FSelectInfo.StartItemNo].Resizing;
         else
@@ -1661,7 +1661,7 @@ export class THCCustomData extends TObject {
                 if (this.FDrawItems[i].LineFirst)
                     vLineSpace = this.GetLineBlankSpace(i);
 
-                this.DrawItemPaintBefor(this, vDrawItem.ItemNo, i, vDrawRect, dataDrawLeft, dataDrawRight, 
+                this.DrawItemPaintBefor(this, vDrawItem.ItemNo, i, vDrawRect, dataDrawLeft, dataDrawRight,
                     dataDrawBottom, dataScreenTop, dataScreenBottom, hclCanvas, paintInfo);
 
                 if (vPrioParaNo != vItem.ParaNo) {
@@ -1752,7 +1752,9 @@ export class THCCustomData extends TObject {
                         hclCanvas.brush.color = this.FStyle.TextStyles[vPrioStyleNo].BackColor;
                         hclCanvas.fillRect(TRect.Create(vClearRect.left, vClearRect.top, vClearRect.left + vDrawItem.width, vClearRect.bottom));
                     }
-
+    
+                    // console.log('获取到的图画item', vDrawItem)
+                    // vText = vItem.Text
                     vText = vItem.Text.substr(vDrawItem.CharOffs - 1, vDrawItem.CharLen);
                     this.DrawItemPaintContent(this, vDrawItem.ItemNo, i, vDrawRect, vClearRect, vText, dataDrawLeft, dataDrawRight,
                         dataDrawBottom, dataScreenTop, dataScreenBottom, hclCanvas, paintInfo);
@@ -1788,6 +1790,7 @@ export class THCCustomData extends TObject {
                         dataScreenTop, dataScreenBottom, hclCanvas, paintInfo);
 
                     if (vText != "") {
+                        console.log('文本内容', vText)
                         if (!(paintInfo.print && vItem.PrintInvisible)) {
                             hclCanvas.brush.style = TBrushStyle.Clear;
 

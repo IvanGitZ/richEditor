@@ -18,6 +18,7 @@ export class THCFormatData extends THCCustomData {
     }
 
     FormatRange(startDrawItemNo, lastItemNo) {
+        console.log(2)
         let vPrioDrawItemNo = -1, vStartItemNo = -1, vStartOffset = -1;
         let vParaStyle = null;
         let vPos = new TPoint();
@@ -49,7 +50,7 @@ export class THCFormatData extends THCCustomData {
             this.FWidth - vParaStyle.RightIndentPix, this.FWidth, vPos, vPrioDrawItemNo);
 
         vPos = vFmtInfo.pos;
-        vPrioDrawItemNo = vFmtInfo.drawItemNo; 
+        vPrioDrawItemNo = vFmtInfo.drawItemNo;
 
         for (let i = vStartItemNo + 1; i <= lastItemNo; i++) {
             if (this.Items[i].ParaFirst) {
@@ -61,7 +62,7 @@ export class THCFormatData extends THCCustomData {
                 this.FWidth - vParaStyle.RightIndentPix, this.FWidth, vPos, vPrioDrawItemNo);
 
             vPos = vFmtInfo.pos;
-            vPrioDrawItemNo = vFmtInfo.drawItemNo;    
+            vPrioDrawItemNo = vFmtInfo.drawItemNo;
         }
 
         this.DrawItems.DeleteFormatMark();
@@ -168,7 +169,7 @@ export class THCFormatData extends THCCustomData {
                     viSplitMod = remWidth % vLineSpaceCount;
                 }
 
-                // 行中第一个DrawItem增加的空间 
+                // 行中第一个DrawItem增加的空间
                 if (vDrawItemSplitCounts[0] > 0) {
                     this.DrawItems[vLineBegDItemNo].rect.width += vDrawItemSplitCounts[0] * viSplitW;
 
@@ -218,6 +219,7 @@ export class THCFormatData extends THCCustomData {
     }
 
     NewDrawItem(itemNo, charOffs, charLen, rect, paraFirst, lineFirst, lastDrawItemNo) {
+        console.log('新的图画item长度', charLen)
         let vDrawItem = new THCCustomDrawItem();
         vDrawItem.ItemNo = itemNo;
         vDrawItem.CharOffs = charOffs;
@@ -446,6 +448,7 @@ export class THCFormatData extends THCCustomData {
         }
 
         if (viBreakOffset < 1) {
+            console.log(5, vItemLen - charOffset + 1)
             vRect.left = pos.x;
             vRect.top = pos.y;
             vRect.right = vRect.left + vCharWidths[vItemLen - 1] - basePos;  // 使用自定义测量的结果
@@ -480,7 +483,7 @@ export class THCFormatData extends THCCustomData {
                     pos = vFmtInfo.pos;
                     vRect = vFmtInfo.rect;
                     vRemainderWidth = vFmtInfo.remainderWidth;
-                    lastDrawItemNo = vFmtInfo.drawItemNo; 
+                    lastDrawItemNo = vFmtInfo.drawItemNo;
                 }
             } else if ((HC.PosCharHC(vText[charOffset - 1], HC.DontLineFirstChar) > 0)
                     && (this.Items[itemNo - 1].StyleNo > THCStyle.Null)
@@ -503,7 +506,7 @@ export class THCFormatData extends THCCustomData {
                     pos = vFmtInfo.pos;
                     vRect = vFmtInfo.rect;
                     vRemainderWidth = vFmtInfo.remainderWidth;
-                    lastDrawItemNo = vFmtInfo.drawItemNo; 
+                    lastDrawItemNo = vFmtInfo.drawItemNo;
                 } else {
                     vRemainderWidth = placeWidth;
                     this.FinishLine(itemNo, lastDrawItemNo, vRemainderWidth);
@@ -519,7 +522,7 @@ export class THCFormatData extends THCCustomData {
                     pos = vFmtInfo.pos;
                     vRect = vFmtInfo.rect;
                     vRemainderWidth = vFmtInfo.remainderWidth;
-                    lastDrawItemNo = vFmtInfo.drawItemNo; 
+                    lastDrawItemNo = vFmtInfo.drawItemNo;
                 }
         } else {
             if (vFirstCharWidth > fmtRight - fmtLeft)  // Data的宽度不足一个字符
@@ -543,7 +546,7 @@ export class THCFormatData extends THCCustomData {
                 pos = vFmtInfo.pos;
                 vRect = vFmtInfo.rect;
                 vRemainderWidth = vFmtInfo.remainderWidth;
-                lastDrawItemNo = vFmtInfo.drawItemNo; 
+                lastDrawItemNo = vFmtInfo.drawItemNo;
             } else {
                 if (viPlaceOffset < charOffset) {
                     if (vFirstCharWidth > fmtRight - fmtLeft)  // Data的宽度不足一个字符
@@ -578,7 +581,7 @@ export class THCFormatData extends THCCustomData {
                     pos = vFmtInfo.pos;
                     vRect = vFmtInfo.rect;
                     vRemainderWidth = vFmtInfo.remainderWidth;
-                    lastDrawItemNo = vFmtInfo.drawItemNo; 
+                    lastDrawItemNo = vFmtInfo.drawItemNo;
                 }
             }
         }
@@ -594,6 +597,7 @@ export class THCFormatData extends THCCustomData {
     }
 
     FormatItemToDrawItems(itemNo, offset, fmtLeft, fmtRight, contentWidth, pos, lastDrawItemNo) {
+        console.log(3)
         if (!this.Items[itemNo].visible)
             return {
                 pos: pos,
@@ -626,17 +630,18 @@ export class THCFormatData extends THCCustomData {
             lastDrawItemNo = this.NewDrawItem(itemNo, offset, vItem.length, vRect, vParaFirst, vLineFirst, lastDrawItemNo);
         } else if (vItem.StyleNo < THCStyle.Null) {
             vRectItem = vItem;
-            let vFmtInfo = this.DoFormatRectItemToDrawItem(vRectItem, itemNo, fmtLeft, contentWidth, fmtRight, offset, 
+            let vFmtInfo = this.DoFormatRectItemToDrawItem(vRectItem, itemNo, fmtLeft, contentWidth, fmtRight, offset,
                 vParaFirst, vParaStyle, pos, vRect, vLineFirst, lastDrawItemNo, vRemainderWidth);
 
             pos = vFmtInfo.pos;
             vRect = vFmtInfo.rect;
             vLineFirst = vFmtInfo.lineFirst;
             lastDrawItemNo = vFmtInfo.drawItemNo;
-            vRemainderWidth = vFmtInfo.remainderWidth;            
+            vRemainderWidth = vFmtInfo.remainderWidth;
 
             this.Style.ApplyTempStyle(THCStyle.Null);
         } else {
+            console.log(4)
             this.CalcItemFormatHeigh(vItem);
             vRemainderWidth = fmtRight - pos.x;
 
@@ -674,7 +679,7 @@ export class THCFormatData extends THCCustomData {
                     viBase = vCharWidths[vIndex - 1];
                 }
 
-                vCharWArr = this.Style.TempCanvas.getTextExtentExPoint(vText.substr(vIndex, viLen), viLen);        
+                vCharWArr = this.Style.TempCanvas.getTextExtentExPoint(vText.substr(vIndex, viLen), viLen);
                 for (let i = 0; i <= viLen - 1; i++)
                     vCharWidths[vIndex + i] = vCharWArr[i] + viBase;
         
@@ -686,7 +691,7 @@ export class THCFormatData extends THCCustomData {
                 pos = vFmtInfo.pos;
                 vRect = vFmtInfo.rect;
                 vRemainderWidth = vFmtInfo.remainderWidth;
-                lastDrawItemNo = vFmtInfo.drawItemNo; 
+                lastDrawItemNo = vFmtInfo.drawItemNo;
             }
         }
 
@@ -831,6 +836,7 @@ export class THCFormatData extends THCCustomData {
     }
 
     ReFormatData(firstDrawItemNo, lastItemNo = -1, extraItemCount = 0, forceClearExtra = false) {
+        console.log(1)
         if (this.FFormatCount != 0)
             return;
     
@@ -839,7 +845,6 @@ export class THCFormatData extends THCCustomData {
             vLastItemNo = this.DrawItems[firstDrawItemNo].ItemNo;
         else
             vLastItemNo = lastItemNo;
-
         let vDrawItemCount = this.DrawItems.count;  // 格式化前的DrawItem数量
         this.FormatRange(firstDrawItemNo, vLastItemNo);  // 格式化指定范围内的Item
         this.FFormatDrawItemCountChange = this.DrawItems.count != vDrawItemCount;  // 格式化前后DrawItem数量有变化

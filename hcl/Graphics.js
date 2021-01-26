@@ -38,7 +38,7 @@ class TGraphicObj {
 
     doChange_() {
         this.onChange();
-    } 
+    }
 }
 
 export var TFontStyle = {
@@ -164,7 +164,7 @@ export class TFont extends TGraphicObj {
         document.body.append(vDiv);
         try {
             vBlock.style.verticalAlign = "baseline";
-            this._ascent = (this._styles.has(TFontStyle.SuperScript) || this._styles.has(TFontStyle.SubScript)) ? 
+            this._ascent = (this._styles.has(TFontStyle.SuperScript) || this._styles.has(TFontStyle.SubScript)) ?
                 Math.trunc((vBlock.offsetTop - vSpan.offsetTop) / 2) : vBlock.offsetTop - vSpan.offsetTop;
 
             vBlock.style.verticalAlign = "bottom";
@@ -304,7 +304,7 @@ export class TFont extends TGraphicObj {
     set styles(val) {
         this._styles = val;
         this._reSetSize();
-        this.doChange_();        
+        this.doChange_();
     }
     
     get height() {
@@ -321,7 +321,7 @@ export class TFont extends TGraphicObj {
 
     get trueType() {
         return this._trueType;
-    }    
+    }
 
     get ascent() {
         return this._ascent;
@@ -337,14 +337,14 @@ export class TFont extends TGraphicObj {
 }
 
 export var TPenStyle = {
-    Solid: 1, 
-    Dash: 2, 
-    Dot: 3, 
-    DashDot: 4, 
-    DashDotDot: 5, 
-    Clear: 6, 
-    InsideFrame: 7, 
-    UserStyle: 8, 
+    Solid: 1,
+    Dash: 2,
+    Dot: 3,
+    DashDot: 4,
+    DashDotDot: 5,
+    Clear: 6,
+    InsideFrame: 7,
+    UserStyle: 8,
     Alternate: 9
 }
 
@@ -364,7 +364,7 @@ class TPen extends TGraphicObj {
     toContext(context) {
         context.lineWdith = this._width;
         context.strokeStyle = this._color;
-    }    
+    }
 
     get width() {
         return this._width;
@@ -462,8 +462,8 @@ class TBrush extends TGraphicObj {
 }
 
 var TCanvasStates = {
-    FontValid: 1, 
-    PenValid: 2, 
+    FontValid: 1,
+    PenValid: 2,
     BrushValid: 3
 }
 
@@ -733,8 +733,8 @@ export class THCCanvas {
 
     /**
      * 返回字符串每个字符的宽度
-     * @param {String} text 
-     * @param {Number} num 
+     * @param {String} text
+     * @param {Number} num
      */
     getTextExtent(text, num = 0) {
         this._requiredState(new Set([TCanvasStates.FontValid]));
@@ -758,8 +758,8 @@ export class THCCanvas {
 
     /**
      * 返回字符串每个字符的结束位置
-     * @param {*} text 
-     * @param {*} len 
+     * @param {*} text
+     * @param {*} len
      */
     getTextExtentExPoint(text, len = 0) {
         this._requiredState(new Set([TCanvasStates.FontValid]));
@@ -794,7 +794,7 @@ export class THCCanvas {
         vSize.width = this.textWidth(text);
         vSize.height = this.font.height;
         return vSize;
-    }    
+    }
 
     drawImage(x, y, image) {
         this.h5context.drawImage(image, x, y);
@@ -878,7 +878,7 @@ export class THCCanvas {
 
     /**
      * 直接绘制多个点组成的线段
-     * @param {TPoint[]} array 
+     * @param {TPoint[]} array
      */
     drawLineByPointsDriect(array) {
         this.beginPath();
@@ -945,7 +945,7 @@ export class THCCanvas {
     }
 
     fillBoundShadow(x, y, w, h, shadow, offsetX = 0, offsetY = 0) {
-        this.h5context.shadowBlur = shadow; 
+        this.h5context.shadowBlur = shadow;
         this.h5context.shadowOffsetX = offsetX;
         this.h5context.shadowOffsetY = offsetY;
         this.fillBounds(x, y, w, h);
