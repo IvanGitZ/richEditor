@@ -43,11 +43,28 @@ toolbar.addButton("打印", false, "./image/print.png").onClick = function(event
     //     newWindow.print();
     // }, 500);
 }
-toolbar.addButton("", false, "./image/hcview.png").onClick = function(event) {
-    alert('替换文本')
-    const replaceStr1 = '我要替换掉$1$'
-    const replaceStr2 = '我要替换掉$2$'
-    console.log('替换文本', hcView.FDataBmpCanvas.h5context)
+const str1 = '$1$'
+const str2 = '$2$'
+toolbar.addButton("插入数据元1").onClick = function(event) {
+    hcView.ActiveSection.InsertText(str1)
+}
+toolbar.addButton("插入数据元2").onClick = function(event) {
+    hcView.ActiveSection.InsertText(str2)
+}
+toolbar.addButton("替换数据源").onClick = function(event) {
+    console.log('获取section', hcView.ActiveSection)
+    const textArr = hcView.ActiveSection.Page.Items
+    textArr.forEach((item) => {
+        myReplace(item, str1, '替1')
+        myReplace(item, str2, '换2')
+    })
+}
+function myReplace(item, str, replaceStr) {
+    if (item.GetText().indexOf(str) >= 0) {
+        let text = item.GetText()
+        text = text.replace(str, replaceStr)
+        item.SetText(text)
+    }
 }
 mainForm.addControl(toolbar);
 
