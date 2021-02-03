@@ -205,7 +205,15 @@ toolbar.addSpliter();
 /*前端打印start
 * */
 toolbar.addButton("打印").onClick = function(event) {
-
+    console.log('hcView', hcView.FDataBmpCanvas)
+    const canvas = hcView.FDataBmpCanvas.h5context.canvas
+    let dataURL = canvas.toDataURL("image/png");
+    console.log('dataURL', dataURL)
+    let newWindow= window.open();
+    newWindow.document.write('<img src="'+dataURL+'"/>');
+    setTimeout(() => {
+        newWindow.print();
+    }, 500);
 }
 /*
 * 前端打印end
