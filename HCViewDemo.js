@@ -189,84 +189,97 @@ toolbar.addSpliter();
 toolbar.addButton("撤销", false, "./image/undo.png").onClick = () => { hcView.Undo(); }
 toolbar.addButton("恢复", false, "./image/redo.png").onClick = () => { hcView.Redo(); }
 toolbar.addSpliter();
-toolbar.addButton('插入图片').onClick = function(event) {
-    TOpenDialog.execute(String.format("{0}", TFileType.IMAGE), (openDlg) => {
-        let vTopData = hcView.ActiveSectionTopLevelData();
-        console.log('图片-1', vTopData)
-        let vImageItem = new THCImageItem(vTopData);
-        console.log('图片-2', vImageItem)
-        console.log('图片-3', openDlg.firstFile)
-        vImageItem.LoadFromBmpFile(openDlg.firstFile, () => {
-            vImageItem.RestrainSize(vTopData.width, vImageItem.Height);
-            hcView.InsertItem(vImageItem);
-        });
-    });
-}
+// toolbar.addButton('插入图片').onClick = function(event) {
+//     TOpenDialog.execute(String.format("{0}", TFileType.IMAGE), (openDlg) => {
+//         let vTopData = hcView.ActiveSectionTopLevelData();
+//         console.log('图片-1', vTopData)
+//         let vImageItem = new THCImageItem(vTopData);
+//         console.log('图片-2', vImageItem)
+//         console.log('图片-3', openDlg.firstFile)
+//         vImageItem.LoadFromBmpFile(openDlg.firstFile, () => {
+//             vImageItem.RestrainSize(vTopData.width, vImageItem.Height);
+//             hcView.InsertItem(vImageItem);
+//         });
+//     });
+// }
+/*前端打印start
+* */
+toolbar.addButton("打印").onClick = function(event) {
 
-let vStyle = new THCStyle()
-const str1 = '%1%'
-const str2 = '#2#'
-const replaceStr1 = '使用这段文字替换掉%1%'
-const replaceStr2 = '使用这段文字替换掉#2#'
-toolbar.addButton("插入数据元1").onClick = function(event) {
-    hcView.InsertText(str1)
-    console.log('插入数据源1', hcView)
 }
-toolbar.addButton("插入数据元2").onClick = function(event) {
-    hcView.InsertText(str2)
-    console.log('插入数据源2', hcView.ActiveSection)
-}
-toolbar.addButton("替换数据源").onClick = function(event) {
-    console.log('获取section', hcView.ActiveSection)
-    const textArr = hcView.ActiveSection.Page.Items
-    const drawArr = hcView.ActiveSection.Page.DrawItems
-    textArr.forEach((item, i) => {
-        if (item._className === 'THCTextItem') {
-            // 文本类型
-            textReplace(item, drawArr[i], str1, replaceStr1)
-            textReplace(item, drawArr[i], str2, replaceStr2)
-        }
-        else if (item._className === 'THCTableItem') {
-            tableTextReplace(item, str1, replaceStr1)
-            tableTextReplace(item, str2, replaceStr2)
-        }
-    })
-}
-function textReplace(item, drawItem, str, replaceStr) {
-    if (item.GetText().indexOf(str) >= 0) {
-        let text = item.GetText()
-        console.log('item', item)
-        
-        text = text.replace(new RegExp(str,'g'), replaceStr)
-        item.SetText(text)
-        drawItem.SetCharLen(text.length)
-        // 替换文本后刷新页面
-        hcView.UpdateView()
-        //
-        // let text = item.GetText()
-        // let beforeText = text.substring(0, item.GetText().indexOf(str))
-        // let afterText = text.substring(item.GetText().indexOf(str) + str.length)
-        // console.log('前后值', item, beforeText, afterText)
-        // item.FText = ''
-        // hcView.InsertText(beforeText)
-        // hcView.InsertText(replaceStr)
-        // hcView.InsertText(afterText)
-        // // 递归调用替换全部
-        // textReplace(item, str, replaceStr)
-    }
-}
-function tableTextReplace(item, str, replaceStr) {
-    item.Rows.forEach((it) => {
-        // it表格的每一行
-        it.forEach((i) => {
-            // 每一行的每一列
-            console.log('表格', i.FCellData)
-            i.FCellData.Items.forEach((ii, index) => {
-                textReplace(ii, i.FCellData.DrawItems[index], str, replaceStr)
-            })
-        })
-    })
-}
+/*
+* 前端打印end
+* */
+/*
+*文本替换start
+ *  */
+// let vStyle = new THCStyle()
+// const str1 = '%1%'
+// const str2 = '#2#'
+// const replaceStr1 = '使用这段文字替换掉%1%'
+// const replaceStr2 = '使用这段文字替换掉#2#'
+// toolbar.addButton("插入数据元1").onClick = function(event) {
+//     hcView.InsertText(str1)
+//     console.log('插入数据源1', hcView)
+// }
+// toolbar.addButton("插入数据元2").onClick = function(event) {
+//     hcView.InsertText(str2)
+//     console.log('插入数据源2', hcView.ActiveSection)
+// }
+// toolbar.addButton("替换数据源").onClick = function(event) {
+//     console.log('获取section', hcView.ActiveSection)
+//     const textArr = hcView.ActiveSection.Page.Items
+//     const drawArr = hcView.ActiveSection.Page.DrawItems
+//     textArr.forEach((item, i) => {
+//         if (item._className === 'THCTextItem') {
+//             // 文本类型
+//             textReplace(item, drawArr[i], str1, replaceStr1)
+//             textReplace(item, drawArr[i], str2, replaceStr2)
+//         }
+//         else if (item._className === 'THCTableItem') {
+//             tableTextReplace(item, str1, replaceStr1)
+//             tableTextReplace(item, str2, replaceStr2)
+//         }
+//     })
+// }
+// function textReplace(item, drawItem, str, replaceStr) {
+//     if (item.GetText().indexOf(str) >= 0) {
+//         let text = item.GetText()
+//         console.log('item', item)
+//
+//         text = text.replace(new RegExp(str,'g'), replaceStr)
+//         item.SetText(text)
+//         drawItem.SetCharLen(text.length)
+//         // 替换文本后刷新页面
+//         hcView.UpdateView()
+//         //
+//         // let text = item.GetText()
+//         // let beforeText = text.substring(0, item.GetText().indexOf(str))
+//         // let afterText = text.substring(item.GetText().indexOf(str) + str.length)
+//         // console.log('前后值', item, beforeText, afterText)
+//         // item.FText = ''
+//         // hcView.InsertText(beforeText)
+//         // hcView.InsertText(replaceStr)
+//         // hcView.InsertText(afterText)
+//         // // 递归调用替换全部
+//         // textReplace(item, str, replaceStr)
+//     }
+// }
+// function tableTextReplace(item, str, replaceStr) {
+//     item.Rows.forEach((it) => {
+//         // it表格的每一行
+//         it.forEach((i) => {
+//             // 每一行的每一列
+//             console.log('表格', i.FCellData)
+//             i.FCellData.Items.forEach((ii, index) => {
+//                 textReplace(ii, i.FCellData.DrawItems[index], str, replaceStr)
+//             })
+//         })
+//     })
+// }
+/*
+* 文本替换end
+* */
 let cbbFont = new TFontCombobox("");
 cbbFont.dropDownStyle = TDropDownStyle.DropDownList;
 cbbFont.align = TAlign.Left;

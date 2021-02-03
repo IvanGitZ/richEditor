@@ -436,6 +436,7 @@ export class THCFormatData extends THCCustomData {
         viBreakOffset = 0;
         vFirstCharWidth = vCharWidths[charOffset - 1] - basePos;  // 第一个字符的宽度
 
+        console.log('字符偏移量', charOffset, '字符长度', vItemLen, '以字符宽度为单位的数组', vCharWidths, 'basePos', basePos, '画布宽度', placeWidth)
         if (placeWidth < 0)
             viBreakOffset = 1;
         else {
@@ -448,7 +449,7 @@ export class THCFormatData extends THCCustomData {
         }
 
         if (viBreakOffset < 1) {
-            console.log(5, vItemLen - charOffset + 1)
+            console.log('文本小于一行时', vItemLen - charOffset + 1)
             vRect.left = pos.x;
             vRect.top = pos.y;
             vRect.right = vRect.left + vCharWidths[vItemLen - 1] - basePos;  // 使用自定义测量的结果
@@ -458,6 +459,7 @@ export class THCFormatData extends THCCustomData {
 
             vRemainderWidth = fmtRight - vRect.right;  // 放入最多后的剩余量
         } else if (viBreakOffset == 1) {
+            console.log('viBreakOffset==1')
             if (vFirstCharWidth > fmtRight - fmtLeft) {
                 vRect.left = pos.x;
                 vRect.top = pos.y;
@@ -525,6 +527,7 @@ export class THCFormatData extends THCCustomData {
                     lastDrawItemNo = vFmtInfo.drawItemNo;
                 }
         } else {
+            console.log('文本超过一行')
             if (vFirstCharWidth > fmtRight - fmtLeft)  // Data的宽度不足一个字符
                 viPlaceOffset = viBreakOffset;
             else
@@ -836,7 +839,7 @@ export class THCFormatData extends THCCustomData {
     }
 
     ReFormatData(firstDrawItemNo, lastItemNo = -1, extraItemCount = 0, forceClearExtra = false) {
-        console.log(1)
+        console.log('1-reformData', firstDrawItemNo, lastItemNo, extraItemCount, this.DrawItems)
         if (this.FFormatCount != 0)
             return;
     
