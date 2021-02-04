@@ -206,14 +206,93 @@ toolbar.addSpliter();
 * */
 toolbar.addButton("打印").onClick = function(event) {
     console.log('hcView', hcView.FDataBmpCanvas)
-    const canvas = hcView.FDataBmpCanvas.h5context.canvas
-    let dataURL = canvas.toDataURL("image/png");
-    console.log('dataURL', dataURL)
+    /*
+    * 普通打印图片start
+    * */
+    // const canvas = hcView.FDataBmpCanvas.h5context.canvas
+    // let dataURL = canvas.toDataURL("image/png");
+    // console.log('dataURL', dataURL)
+    // let newWindow= window.open();
+    // newWindow.document.write('<img src="'+dataURL+'"/>');
+    // setTimeout(() => {
+    //     newWindow.print();
+    // }, 500);
+    /*
+    * 普通打印图片end
+    * */
+
+    /*
+    * 转成图片再使用canvas打印start
+    * */
+    // const canvas = hcView.FDataBmpCanvas.h5context.canvas
+    // let dataURL = canvas.toDataURL("image/png");
+    // var loadTimer
+    // let imgObject = new Image();
+    // imgObject.src = dataURL
+    // imgObject.onLoad = onImgLoaded();
+    // function onImgLoaded() {
+    //     if (loadTimer != null) clearTimeout(loadTimer);
+    //     if (!imgObject.complete) {
+    //         loadTimer = setTimeout(function() {
+    //             onImgLoaded();
+    //         }, 3);
+    //     } else {
+    //         onPreloadComplete(imgObject);
+    //     }
+    // }
+    /*
+    * 转成图片再使用canvas打印start
+    * */
+
+    /*
+    * 直接用canvas打印
+    * */
+    const bufferCanvas = hcView.FDataBmpCanvas.h5context.canvas
+    console.log(bufferCanvas.width, bufferCanvas.height)
+    const paperWidth = 794  // A4纸宽度
+    const paperHeight = 1123  // A4纸高度
+    const paperMargin = 20 // 纸张间距
+    const toolHeight = 45 // 工具栏高度
+    const startX = (bufferCanvas.width - paperWidth)/2 // 打印起始X坐标
+    const startY = toolHeight + paperMargin // 打印起始Y坐标
+    let tnCanvas = document.createElement('canvas');
+    let tnCanvasContext = tnCanvas.getContext('2d');
+    tnCanvas.width = paperWidth; tnCanvas.height = paperHeight;
+    tnCanvasContext.drawImage(bufferCanvas, startX, startY, paperWidth-1, paperHeight, 0, 0, paperWidth, paperHeight)
+    const dataURL = tnCanvas.toDataURL()
     let newWindow= window.open();
     newWindow.document.write('<img src="'+dataURL+'"/>');
     setTimeout(() => {
         newWindow.print();
     }, 500);
+
+}
+
+function onPreloadComplete(imgObject){
+    //call the methods that will create a 64-bit version of thumbnail here.
+    let newImg = getImagePortion(imgObject, 795, 150, 96, 65, 1);
+    console.log('newImg', newImg)
+    //place image in appropriate div
+    // document.getElementById("images").innerHTML = "<img alt='' src=" + newImg + " />";
+}
+
+function getImagePortion(imgObj, newWidth, newHeight, startX, startY, ratio){
+    /* the parameters: - the image element - the new width - the new height - the x point we start taking pixels - the y point we start taking pixels - the ratio */
+    //set up canvas for thumbnail
+    let tnCanvas = document.createElement('canvas');
+    let tnCanvasContext = tnCanvas.getContext('2d');
+    tnCanvas.width = newWidth; tnCanvas.height = newHeight;
+
+    /* use the sourceCanvas to duplicate the entire image. This step was crucial for iOS4 and under devices. Follow the link at the end of this post to see what happens when you don’t do this */
+    let bufferCanvas = document.createElement('canvas');
+    let bufferContext = bufferCanvas.getContext('2d');
+    bufferCanvas.width = imgObj.width;
+    bufferCanvas.height = imgObj.height;
+    bufferContext.drawImage(imgObj, 0, 0);
+
+    /* now we use the drawImage method to take the pixels from our bufferCanvas and draw them into our thumbnail canvas */
+    tnCanvasContext.drawImage(bufferCanvas, startX,startY,newWidth * ratio, newHeight * ratio,0,0,newWidth,newHeight);
+    return tnCanvas.toDataURL();
 }
 /*
 * 前端打印end
