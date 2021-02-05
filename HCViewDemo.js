@@ -248,7 +248,7 @@ toolbar.addButton("打印").onClick = function(event) {
     * 直接用canvas打印
     * */
     const bufferCanvas = hcView.FDataBmpCanvas.h5context.canvas
-    // console.log(hcView.ViewWidth, hcView.ViewHeight)
+    console.log(hcView.ViewWidth, hcView.ViewHeight)
     // console.log(bufferCanvas.width, bufferCanvas.height)
     console.log('FVScrollBar', hcView.FVScrollBar)
     hcView.FVScrollBar.position = 0
@@ -256,10 +256,10 @@ toolbar.addButton("打印").onClick = function(event) {
     const paperWidth = 794  // A4纸宽度
     const paperHeight = 1123  // A4纸高度
     const paperMargin = hcView.PagePadding // 纸张间距
-    const toolHeight = 45 // 工具栏高度
+    // const toolHeight = 45 // 工具栏高度
     let paintY = 0 // 要绘制的y点
     let startX = (hcView.ViewWidth - paperWidth)/2 // 打印起始X坐标
-    let startY = toolHeight + paperMargin // 打印起始Y坐标
+    let startY = paperMargin // 打印起始Y坐标
     let tnCanvas = document.createElement('canvas');
     let tnCanvasContext = tnCanvas.getContext('2d');
     tnCanvas.width = paperWidth;
@@ -274,7 +274,7 @@ toolbar.addButton("打印").onClick = function(event) {
             console.log(dataURL)
         } else {
             startY = hcView.ViewHeight - paintStep
-            paintY = hcView.ViewHeight + paintStep*i - toolHeight - paperMargin
+            paintY = hcView.ViewHeight + paintStep*i - paperMargin
             console.log('paintY', paintY)
             tnCanvasContext.drawImage(bufferCanvas, startX, startY, paperWidth-1, paintStep, 0, paintY, paperWidth, paintStep)
             const dataURL = tnCanvas.toDataURL()
@@ -283,8 +283,6 @@ toolbar.addButton("打印").onClick = function(event) {
         hcView.FVScrollBar.position += paintStep
 
     }
-    // hcView.FVScrollBar.position = 120
-    // tnCanvasContext.drawImage(bufferCanvas, startX, hcView.ViewHeight - paintStep, paperWidth-1, paperHeight, 0, hcView.ViewHeight, paperWidth, paperHeight)
     const dataURL = tnCanvas.toDataURL()
     console.log(dataURL)
     let newWindow= window.open();
