@@ -1300,7 +1300,7 @@ export class THCView extends TCustomControl {
     }
 
     doMouseWheel_(e) {
-        console.log('滚轮滚动', e)
+        // console.log('滚轮滚动', e)
         if (hcl.keyDownStates[TKey.ControlKey]) {
             if (e.delta > 0)
                 this.Zoom = this.Zoom + 0.1;

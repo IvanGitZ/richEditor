@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b0d4402c-482c-4660-b878-00f8e98f5206" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HCViewDemo.js" afterPath="$PROJECT_DIR$/HCViewDemo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hcview/HCView.js" afterPath="$PROJECT_DIR$/hcview/HCView.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,8 +42,8 @@
       <file leaf-file-name="HCViewDemo.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HCViewDemo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="256" column="32" lean-forward="true" selection-start-line="256" selection-start-column="32" selection-end-line="256" selection-end-column="32" />
+            <state relative-caret-position="337">
+              <caret line="276" column="66" lean-forward="true" selection-start-line="276" selection-start-column="66" selection-end-line="276" selection-end-column="66" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
                 <element signature="e#21045#23213#0" expanded="false" />
@@ -106,6 +106,8 @@
       <find>position</find>
       <find>drawImage</find>
       <find>文本内容</find>
+      <find>滚轮滚动</find>
+      <find>toolHeight</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -228,12 +230,12 @@
       <workItem from="1611882238707" duration="216000" />
       <workItem from="1612315049780" duration="13769000" />
       <workItem from="1612409258266" duration="16468000" />
-      <workItem from="1612484939706" duration="7068000" />
+      <workItem from="1612484939706" duration="8154000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66657000" />
+    <option name="totallyTimeSpent" value="67743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="0" width="1368" height="728" extended-state="1" />
@@ -242,6 +244,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18421052" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55369127" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -253,7 +256,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -704,8 +706,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HCViewDemo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="256" column="32" lean-forward="true" selection-start-line="256" selection-start-column="32" selection-end-line="256" selection-end-column="32" />
+        <state relative-caret-position="337">
+          <caret line="276" column="66" lean-forward="true" selection-start-line="276" selection-start-column="66" selection-end-line="276" selection-end-column="66" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
             <element signature="e#21045#23213#0" expanded="false" />
