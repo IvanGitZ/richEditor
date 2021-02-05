@@ -436,9 +436,9 @@ export class THCView extends TCustomControl {
     }
 
     DoVerScroll(sender, scrollCode, scrollPos) {
-        console.log(sender, scrollCode, scrollPos)
+        // console.log(sender, scrollCode, scrollPos)
         // scrollCode是页面的高度
-        console.log(this.FVScrollBar.position)
+        // console.log(this.FVScrollBar.position)
         this.FStyle.updateInfoRePaint();
         this.FStyle.updateInfoReCaret(false);
         this.CheckUpdateInfo();
@@ -1301,6 +1301,7 @@ export class THCView extends TCustomControl {
 
     doMouseWheel_(e) {
         // console.log('滚轮滚动', e)
+        // e.delta -- 滚轮每滚动一次递增120，该120为页面的滚动像素
         if (hcl.keyDownStates[TKey.ControlKey]) {
             if (e.delta > 0)
                 this.Zoom = this.Zoom + 0.1;
