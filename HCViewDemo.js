@@ -248,18 +248,45 @@ toolbar.addButton("打印").onClick = function(event) {
     * 直接用canvas打印
     * */
     const bufferCanvas = hcView.FDataBmpCanvas.h5context.canvas
-    console.log(bufferCanvas.width, bufferCanvas.height)
+    // console.log(hcView.ViewWidth, hcView.ViewHeight)
+    // console.log(bufferCanvas.width, bufferCanvas.height)
+    console.log('FVScrollBar', hcView.FVScrollBar)
+    hcView.FVScrollBar.position = 0
+    const paintStep = 120
     const paperWidth = 794  // A4纸宽度
     const paperHeight = 1123  // A4纸高度
-    const paperMargin = 20 // 纸张间距
+    const paperMargin = hcView.PagePadding // 纸张间距
     const toolHeight = 45 // 工具栏高度
-    const startX = (bufferCanvas.width - paperWidth)/2 // 打印起始X坐标
-    const startY = toolHeight + paperMargin // 打印起始Y坐标
+    let paintY = 0 // 要绘制的y点
+    let startX = (hcView.ViewWidth - paperWidth)/2 // 打印起始X坐标
+    let startY = toolHeight + paperMargin // 打印起始Y坐标
     let tnCanvas = document.createElement('canvas');
     let tnCanvasContext = tnCanvas.getContext('2d');
-    tnCanvas.width = paperWidth; tnCanvas.height = paperHeight;
-    tnCanvasContext.drawImage(bufferCanvas, startX, startY, paperWidth-1, paperHeight, 0, 0, paperWidth, paperHeight)
+    tnCanvas.width = paperWidth;
+    tnCanvas.height = paperHeight
+    const scrollHeight = paperHeight - hcView.ViewHeight // 滚动的高度
+    console.log(scrollHeight/paintStep)
+    for ( let i = -1; i < (scrollHeight/paintStep); i++) {
+        console.log('i', i)
+        if (i < 0) {
+            tnCanvasContext.drawImage(bufferCanvas, startX, startY, paperWidth-1, hcView.ViewHeight - startY, 0, 0, paperWidth, hcView.ViewHeight - startY)
+            const dataURL = tnCanvas.toDataURL()
+            console.log(dataURL)
+        } else {
+            startY = hcView.ViewHeight - paintStep
+            paintY = hcView.ViewHeight + paintStep*i - toolHeight - paperMargin
+            console.log('paintY', paintY)
+            tnCanvasContext.drawImage(bufferCanvas, startX, startY, paperWidth-1, paintStep, 0, paintY, paperWidth, paintStep)
+            const dataURL = tnCanvas.toDataURL()
+            console.log(dataURL)
+        }
+        hcView.FVScrollBar.position += paintStep
+
+    }
+    // hcView.FVScrollBar.position = 120
+    // tnCanvasContext.drawImage(bufferCanvas, startX, hcView.ViewHeight - paintStep, paperWidth-1, paperHeight, 0, hcView.ViewHeight, paperWidth, paperHeight)
     const dataURL = tnCanvas.toDataURL()
+    console.log(dataURL)
     let newWindow= window.open();
     newWindow.document.write('<img src="'+dataURL+'"/>');
     setTimeout(() => {

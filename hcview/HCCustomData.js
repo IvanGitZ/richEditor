@@ -1790,7 +1790,7 @@ export class THCCustomData extends TObject {
                         dataScreenTop, dataScreenBottom, hclCanvas, paintInfo);
 
                     if (vText != "") {
-                        console.log('文本内容', vText)
+                        // console.log('文本内容', vText)
                         if (!(paintInfo.print && vItem.PrintInvisible)) {
                             hclCanvas.brush.style = TBrushStyle.Clear;
 
