@@ -3364,6 +3364,7 @@ export class THCRichData extends THCUndoData {
     }
 
     EnterKeyDown(vCurItem, e, pageBreak) {
+        console.log('回车', vCurItem, e, pageBreak)
         if (!this.DoAcceptAction(this.SelectInfo.StartItemNo, this.SelectInfo.StartItemOffset, THCAction.ReturnItem))
             return;
 

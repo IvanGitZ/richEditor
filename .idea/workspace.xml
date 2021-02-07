@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b0d4402c-482c-4660-b878-00f8e98f5206" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hcview/HCRichData.js" afterPath="$PROJECT_DIR$/hcview/HCRichData.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hcview/HCView.js" afterPath="$PROJECT_DIR$/hcview/HCView.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +21,19 @@
       <file leaf-file-name="HCView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hcview/HCView.js">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="1334" column="33" lean-forward="true" selection-start-line="1334" selection-start-column="33" selection-end-line="1334" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HCRichData.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hcview/HCRichData.js">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="121">
-              <caret line="1304" column="42" lean-forward="false" selection-start-line="1304" selection-start-column="42" selection-end-line="1304" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#121#0" expanded="true" />
-              </folding>
+              <caret line="3368" column="19" lean-forward="true" selection-start-line="3368" selection-start-column="19" selection-end-line="3368" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -39,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HCViewDemo.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HCViewDemo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HCViewDemo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="281" column="9" lean-forward="true" selection-start-line="281" selection-start-column="9" selection-end-line="281" selection-end-column="9" />
+            <state relative-caret-position="226">
+              <caret line="292" column="0" lean-forward="true" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="0" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
                 <element signature="e#21045#23213#0" expanded="false" />
@@ -55,9 +64,11 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="209">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,7 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>新的图画item长度</find>
       <find>console.log(4</find>
       <find>console.log(2</find>
       <find>console.log(2)</find>
@@ -109,6 +119,7 @@
       <find>toolHeight</find>
       <find>DoVerScroll</find>
       <find>滚轮</find>
+      <find>EnterKeyDown</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -124,10 +135,10 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/hcview/HCDrawItem.js" />
-        <option value="$PROJECT_DIR$/hcview/HCRichData.js" />
         <option value="$PROJECT_DIR$/hcview/HCFormatData.js" />
-        <option value="$PROJECT_DIR$/hcview/HCView.js" />
         <option value="$PROJECT_DIR$/HCViewDemo.js" />
+        <option value="$PROJECT_DIR$/hcview/HCView.js" />
+        <option value="$PROJECT_DIR$/hcview/HCRichData.js" />
       </list>
     </option>
   </component>
@@ -158,7 +169,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -170,6 +180,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -231,12 +242,13 @@
       <workItem from="1611882238707" duration="216000" />
       <workItem from="1612315049780" duration="13769000" />
       <workItem from="1612409258266" duration="16468000" />
-      <workItem from="1612484939706" duration="16685000" />
+      <workItem from="1612484939706" duration="19329000" />
+      <workItem from="1612657973872" duration="15082000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76274000" />
+    <option name="totallyTimeSpent" value="94000000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="0" width="1368" height="728" extended-state="0" />
@@ -245,11 +257,10 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18421052" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55369127" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3108108" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24662162" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -257,6 +268,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -293,7 +305,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -316,7 +330,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10773">
           <caret line="573" column="4" lean-forward="false" selection-start-line="573" selection-start-column="4" selection-end-line="573" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -335,9 +348,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32471">
           <caret line="1723" column="8" lean-forward="false" selection-start-line="1723" selection-start-column="8" selection-end-line="1725" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#121#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -367,7 +378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10887">
           <caret line="573" column="4" lean-forward="false" selection-start-line="573" selection-start-column="4" selection-end-line="573" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -386,9 +396,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32737">
           <caret line="1723" column="8" lean-forward="false" selection-start-line="1723" selection-start-column="8" selection-end-line="1725" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#121#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -418,7 +426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10887">
           <caret line="573" column="4" lean-forward="false" selection-start-line="573" selection-start-column="4" selection-end-line="573" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -646,7 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10773">
           <caret line="573" column="4" lean-forward="false" selection-start-line="573" selection-start-column="4" selection-end-line="573" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -661,14 +667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="464" column="34" lean-forward="true" selection-start-line="464" selection-start-column="34" selection-end-line="464" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hcview/HCRichData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="4370" column="34" lean-forward="false" selection-start-line="4370" selection-start-column="34" selection-end-line="4370" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -687,32 +685,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hcview/HCView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="1304" column="42" lean-forward="false" selection-start-line="1304" selection-start-column="42" selection-end-line="1304" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#121#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="209">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HCViewDemo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="281" column="9" lean-forward="true" selection-start-line="281" selection-start-column="9" selection-end-line="281" selection-end-column="9" />
+        <state relative-caret-position="226">
+          <caret line="292" column="0" lean-forward="true" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="0" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
             <element signature="e#21045#23213#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hcview/HCView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="1334" column="33" lean-forward="true" selection-start-line="1334" selection-start-column="33" selection-end-line="1334" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hcview/HCRichData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="3368" column="19" lean-forward="true" selection-start-line="3368" selection-start-column="19" selection-end-line="3368" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>

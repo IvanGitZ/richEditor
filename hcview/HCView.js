@@ -1316,6 +1316,7 @@ export class THCView extends TCustomControl {
     }
 
     doKeyDown_(e) {
+        console.log('回车', e.keyCode)
         if (hcl.keyDownStates[TKey.ControlKey] && hcl.keyDownStates[TKey.ShiftKey] && (e.keyCode == TKey.C))
             this.CopyAsText();
         else if (hcl.keyDownStates[TKey.ControlKey] && (e.keyCode == TKey.C))
